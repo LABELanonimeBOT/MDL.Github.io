@@ -8,7 +8,7 @@
         /* Stile globale per il body */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #141414; /* Sfondo scuro per trasmettere sicurezza */
+            background-color: #141414; /* Sfondo scuro */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -19,26 +19,28 @@
             text-align: center;
         }
 
-        /* Stile per il titolo */
+        /* Titolo di benvenuto */
         h1 {
-            font-size: 3em;
-            color: #e74c3c; /* Rosso per un effetto di forza e attenzione */
+            font-size: 4em;
+            font-family: 'Impact', sans-serif;
+            color: #e74c3c; /* Colore rosso */
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); /* Effetto ombra per dare profondità */
             margin-bottom: 20px;
             animation: fadeIn 2s ease-in-out;
         }
 
         /* Animazione per il titolo */
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Stile per il messaggio */
+        /* Messaggio di benvenuto */
         p {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #ddd;
-            margin-bottom: 40px;
             animation: fadeInMessage 2s ease-in-out;
+            margin-bottom: 40px;
         }
 
         /* Animazione per il messaggio */
@@ -47,13 +49,38 @@
             100% { opacity: 1; }
         }
 
-        /* Stile per il menu */
-        .menu {
+        /* Stile per il pulsante di accesso */
+        .login-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .login-button:hover {
+            background-color: #c0392b; /* Colore più scuro al passaggio del mouse */
+        }
+
+        /* Sezione principale dopo il login */
+        #mainContent {
+            display: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Menu e carrello */
+        .menu, .cart {
             margin-top: 40px;
             font-size: 1.5em;
         }
 
-        .menu select {
+        .menu select, .cart select {
             background-color: #333;
             color: #fff;
             padding: 10px;
@@ -63,8 +90,7 @@
             border: 1px solid #444;
         }
 
-        /* Bottone interattivo */
-        .menu button {
+        .menu button, .cart button {
             padding: 12px 24px;
             font-size: 1.2em;
             background-color: #e74c3c;
@@ -75,11 +101,11 @@
             transition: background-color 0.3s ease;
         }
 
-        .menu button:hover {
-            background-color: #c0392b; /* Rosso più scuro quando si passa sopra */
+        .menu button:hover, .cart button:hover {
+            background-color: #c0392b; /* Colore più scuro al passaggio del mouse */
         }
 
-        /* Stile per l'elemento di contatto */
+        /* Informazioni di contatto */
         .contact-info {
             font-size: 1.3em;
             color: #3498db; /* Blu per i link */
@@ -101,14 +127,6 @@
 
         .contact-info a:hover {
             text-decoration: underline;
-        }
-
-        /* Stile per la riga di separazione */
-        .separator {
-            margin-top: 40px;
-            border-top: 2px solid #e74c3c; /* Linea rossa per separare la sezione */
-            width: 50%;
-            margin: 40px auto;
         }
     </style>
     <script>
@@ -133,11 +151,41 @@
 <body>
     <!-- Messaggio di autenticazione -->
     <div id="authMessage" style="display: block;">
-        <h1>Accesso in corso...</h1>
-        <p>Effettua il login per procedere.</p>
+        <h1>Benvenuto su MDL</h1>
+        <p>Prima di proseguire, inserisci la password per accedere.</p>
+        <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
     <!-- Contenuto principale (mostrato dopo autenticazione) -->
     <div id="mainContent" style="display: none;">
         <h1>Benvenuto su MDL</h1>
-        <p>Hai effettuato l'accesso con successo! Ora puoi scegliere il prodotto e completare l'
+        <p>Hai effettuato l'accesso con successo! Ora puoi scegliere il prodotto e completare l'ordine.</p>
+
+        <!-- Link Telegram -->
+        <div class="contact-info">
+            <p>Per completare l'ordine, contattaci su Telegram: <a href="https://t.me/MercatoDellaDxxxxLibero" target="_blank">@MercatoDellaDxxxxLibero</a></p>
+        </div>
+
+        <!-- Menu per scegliere il prodotto -->
+        <div class="menu">
+            <h2>Seleziona un prodotto</h2>
+            <select id="menu">
+                <option value="">Seleziona un prodotto...</option>
+                <option value="Prodotto 1">Prodotto 1</option>
+                <option value="Prodotto 2">Prodotto 2</option>
+                <option value="Prodotto 3">Prodotto 3</option>
+            </select>
+            <button onclick="alert('Prodotto aggiunto al carrello!')">Aggiungi al carrello</button>
+        </div>
+
+        <!-- Carrello -->
+        <div class="cart">
+            <h2>Carrello</h2>
+            <select id="cart">
+                <option value="">Il tuo carrello è vuoto.</option>
+            </select>
+            <button onclick="alert('Completa il pagamento o scegli altro!')">Completa ordine</button>
+        </div>
+    </div>
+</body>
+</html>
