@@ -3,71 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Protetta</title>
+    <title>Autenticazione Completa</title>
     <style>
-        /* Stile generale della pagina */
+        /* Stile globale per il body */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #000000; /* Sfondo nero per trasmettere sicurezza */
-            color: #fff;  /* Testo bianco per contrasto */
-            text-align: center;
+            font-family: 'Arial', sans-serif;
+            background-color: #141414; /* Colore scuro per sicurezza */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
+            flex-direction: column;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        h1 {
-            font-size: 3em;
-            margin-top: 20%;
-            color: #e74c3c; /* Colore rosso intenso per il titolo, che evoca forza */
-        }
-
-        p {
-            font-size: 1.5em;
-            color: #f5f5f5; /* Testo grigio chiaro per il paragrafo */
-        }
-
-        /* Animazione del testo per renderlo più interessante */
-        .welcome-message {
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        /* Definizione animazione per il fade in */
+        /* Animazione di transizione */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
 
-        /* Aggiungi bordi e effetti alle interazioni */
+        /* Stile per il titolo */
+        h1 {
+            font-size: 3em;
+            color: #e74c3c; /* Colore rosso per trasmettere forza */
+            margin-bottom: 20px;
+            animation: bounceIn 2s ease-in-out;
+        }
+
+        /* Animazione per il titolo */
+        @keyframes bounceIn {
+            0% { transform: scale(0); }
+            60% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* Stile per il messaggio */
+        p {
+            font-size: 1.5em;
+            color: #ddd;
+            margin-bottom: 40px;
+            animation: fadeInMessage 2s ease-in-out;
+        }
+
+        /* Animazione per il messaggio */
+        @keyframes fadeInMessage {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Stile per il bottone */
         button {
-            padding: 10px 20px;
-            background-color: #e74c3c; /* Rosso per il bottone */
-            border: none;
-            color: white;
+            padding: 15px 30px;
             font-size: 1.2em;
-            cursor: pointer;
-            margin-top: 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #c0392b; /* Colore rosso più scuro al passaggio del mouse */
+            background-color: #c0392b; /* Colore più scuro al passaggio del mouse */
+        }
+
+        /* Stile per l'elemento che appare dopo l'autenticazione */
+        .success-message {
+            font-size: 1.8em;
+            color: #27ae60; /* Verde per successi */
+            margin-top: 30px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        /* Animazione per il successo */
+        @keyframes slideIn {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Stile per il testo di contatto */
+        .contact-info {
+            font-size: 1.2em;
+            color: #3498db; /* Blu per i link */
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
         }
     </style>
     <script>
         // Prompt per la password
         var password = prompt("Inserisci la password per accedere alla pagina:");
+
         if (password !== "MDL") {  // Cambia "MDL" con la tua password
             alert("Password errata!");
             window.location.href = "about:blank"; // Chiude la pagina se la password è errata
+        } else {
+            // Se la password è corretta, mostra il messaggio di benvenuto
+            document.getElementById("successMessage").style.display = "block";
         }
     </script>
 </head>
 <body>
-    <h1 class="welcome-message">BENVENUTO SU MDL</h1>
-    <p>SEI QUI GRAZIE AL TUO LINK UFFICIALE.</p>
+    <h1>Autenticazione Completa</h1>
+    <p>Sei stato autenticato con successo!</p>
 
-    <!-- Un esempio di bottone che potresti usare -->
-    <button onclick="alert('Grazie per aver cliccato!')">Clicca qui per scoprire di più</button>
+    <!-- Messaggio che appare se la password è corretta -->
+    <div id="successMessage" class="success-message" style="display: none;">
+        <p>Hai accesso completo alla pagina protetta!</p>
+        <button onclick="alert('Benvenuto, continua a esplorare!')">Esplora il Contenuto</button>
+
+        <!-- Aggiungi il testo di contatto per completare l'acquisto -->
+        <div class="contact-info">
+            <p>Per completare l'acquisto, contatta <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a></p>
+        </div>
+    </div>
 </body>
 </html>
