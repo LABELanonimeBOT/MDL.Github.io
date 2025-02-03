@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benvenuto su MDL</title>
     <style>
-        /* Stile globale per il body */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #141414; /* Sfondo scuro */
@@ -15,31 +14,28 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            flex-direction: column;
             text-align: center;
             overflow: hidden;
             position: relative;
-            background-image: url('https://via.placeholder.com/1920x1080.png'); /* Immagine di sfondo personalizzata */
+            background-image: url('https://via.placeholder.com/1920x1080.png'); /* Sfondo personalizzato */
             background-position: center;
             background-size: cover;
-            background-blur: 5px;
         }
 
-        /* Animazione lettera per lettera del logo MDL */
+        /* Logo MDL animato sotto la barra di selezione prodotto */
         .logo-container {
+            position: absolute;
+            bottom: 100px;
             display: flex;
             justify-content: center;
-            margin-top: 50px;
-            position: absolute;
-            bottom: 120px; /* Posiziona sotto la barra di selezione prodotto */
         }
 
         .logo {
-            font-size: 12em;
+            font-size: 10em;
             font-family: 'Impact', sans-serif;
-            color: #e74c3c; /* Rosso brillante */
-            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8); /* Ombra per il logo */
-            margin: 0 10px;
+            color: #e74c3c;
+            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+            margin: 0 5px;
             opacity: 0;
             animation: fadeIn 2s forwards, moveLetter 1s ease-in-out infinite alternate;
         }
@@ -48,7 +44,6 @@
         .logo:nth-child(2) { animation-delay: 0.4s; }
         .logo:nth-child(3) { animation-delay: 0.6s; }
 
-        /* Animazione per le lettere */
         @keyframes fadeIn {
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
@@ -59,49 +54,63 @@
             100% { transform: translateY(-20px); }
         }
 
-        /* Banner senza fondo con logo delle criptovalute */
+        /* Banner Crypto Market verticale */
         .banner {
             position: absolute;
             top: 50%;
             right: 10px;
             transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #fff;
-            z-index: 10;
-        }
-
-        .banner h2 {
             font-size: 2em;
-            margin-bottom: 10px;
-            transform: rotate(90deg); /* Testo verticale */
+            writing-mode: vertical-rl; /* Testo verticale */
+            color: #fff;
             font-family: 'Courier New', Courier, monospace;
             letter-spacing: 4px;
-            color: #fff;
+            font-weight: bold;
         }
 
-        .cryptos {
+        .crypto-icons {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .crypto {
-            margin: 10px 0;
-            text-align: center;
-        }
-
-        .crypto img {
+        .crypto-icons img {
             width: 40px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
-        .crypto span {
-            font-size: 1.2em;
+        /* Barra di selezione prodotto */
+        .menu {
+            margin-top: 200px;
         }
 
-        /* Stile per la barra di selezione e conferma bozza */
+        select {
+            padding: 15px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+        }
+
+        .confirm-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .confirm-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Sezione di login */
         #loginArea {
             margin-top: 30px;
             opacity: 0;
@@ -141,81 +150,45 @@
         .login-button:hover {
             background-color: #c0392b;
         }
-
-        /* Contenuto principale */
-        #mainContent {
-            display: none;
-            text-align: center;
-        }
-
-        .menu {
-            margin-top: 30px;
-        }
-
-        select {
-            padding: 15px;
-            font-size: 1.5em;
-            color: #fff;
-            background-color: #333;
-            border: 2px solid #e74c3c;
-            border-radius: 5px;
-        }
-
-        .confirm-button {
-            padding: 15px 30px;
-            font-size: 1.5em;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-
-        .confirm-button:hover {
-            background-color: #c0392b;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Banner "CRYPTO MARKET" verticale -->
+    <!-- Banner Crypto Market -->
     <div class="banner">
-        <h2>CRYPTO MARKET</h2>
-        <div class="cryptos">
-            <div class="crypto">
-                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+        CRYPTO MARKET
+        <div class="crypto-icons">
+            <div>
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC">
                 <span>BTC</span>
             </div>
-            <div class="crypto">
-                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+            <div>
+                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH">
                 <span>ETH</span>
             </div>
-            <div class="crypto">
+            <div>
                 <img src="https://cryptologos.cc/logos/usdc-usd-coin-logo.png" alt="USDC">
                 <span>USDC</span>
             </div>
         </div>
     </div>
 
-    <!-- Logo MDL più grande e ombroso -->
+    <!-- Logo MDL Animato -->
     <div class="logo-container">
         <div class="logo">M</div>
         <div class="logo">D</div>
         <div class="logo">L</div>
     </div>
 
-    <!-- Area per la password -->
+    <!-- Area di Login -->
     <div id="loginArea">
         <h2>Inserisci la password per accedere:</h2>
         <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <!-- Contenuto della pagina principale dopo l'accesso -->
-    <div id="mainContent">
+    <!-- Contenuto della pagina principale -->
+    <div id="mainContent" style="display: none;">
         <div class="logo">MDL</div>
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
