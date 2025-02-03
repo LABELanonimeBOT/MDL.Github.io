@@ -10,22 +10,3 @@
     <p>Questa è una pagina segreta e accessibile solo con il link.</p>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Protetta</title>
-    <script>
-        var password = prompt("Inserisci la password per accedere alla pagina:");
-        if (password !== "MDL") {
-            alert("Password errata!");
-            window.location.href = "about:blank"; // chiude la pagina se la password è errata
-        }
-    </script>
-</head>
-<body>
-    <h1>Benvenuto nella pagina protetta!</h1>
-    <p>Contenuto visibile solo a chi ha la password giusta.</p>
-</body>
-</html>
