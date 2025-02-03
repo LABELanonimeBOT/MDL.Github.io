@@ -200,18 +200,11 @@
 
         <!-- Informazioni di contatto Telegram -->
         <div class="contact-info">
-            <p>Per ulteriori informazioni, contattaci su Telegram: <a href="https://t.me/MercatoDellaDxxxxLibero">@MercatoDellaDxxxxLibero</a></p>
+            <p>Per ulteriori informazioni, contattaci su Telegram: <a href="https://t.me/MercatoDellaDxxxxLibero" target="_blank">@MercatoDellaDxxxxLibero</a></p>
         </div>
     </div>
 
     <script>
-        // Funzione per gestire il click sul link per mostrare la sezione della password
-        document.getElementById("loginLink").addEventListener("click", function(e) {
-            e.preventDefault();
-            document.getElementById("loginLink").style.display = "none"; // Nasconde il link
-            document.getElementById("loginArea").style.display = "block"; // Mostra la sezione di login
-        });
-
         // Funzione per l'autenticazione tramite password
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
