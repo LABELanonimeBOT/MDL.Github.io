@@ -162,6 +162,31 @@
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
+    <!-- Contenuto della pagina principale dopo l'accesso -->
+    <div id="mainContent" style="display:none;">
+        <h1>Benvenuto su MDL</h1>
+        <p>Hai effettuato l'accesso con successo! Ora puoi scegliere il prodotto e completare l'ordine.</p>
+
+        <!-- Menu per scegliere il prodotto -->
+        <div class="menu">
+            <select id="menu">
+                <option value="">Seleziona un prodotto...</option>
+                <option value="Prodotto 1">Prodotto 1</option>
+                <option value="Prodotto 2">Prodotto 2</option>
+                <option value="Prodotto 3">Prodotto 3</option>
+            </select>
+            <button onclick="alert('Grazie per aver scelto un prodotto!')">Aggiungi al carrello</button>
+        </div>
+
+        <!-- Riga separatrice -->
+        <div class="separator"></div>
+
+        <!-- Informazioni di contatto -->
+        <div class="contact-info">
+            <p>Scegli e completa l'ordine contattando: <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a></p>
+        </div>
+    </div>
+
     <script>
         // Funzione per gestire il click sul link per mostrare la sezione della password
         document.getElementById("loginLink").addEventListener("click", function(e) {
@@ -176,7 +201,8 @@
             var password = document.getElementById("passwordInput").value;
             if (password === "MDL") {
                 alert("Accesso riuscito!");
-                window.location.href = "pagina_segreta.html"; // Reindirizza alla pagina protetta
+                document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
+                document.getElementById("loginArea").style.display = "none"; // Nasconde la sezione di login
             } else {
                 alert("Password errata!");
             }
