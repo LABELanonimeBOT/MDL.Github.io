@@ -19,30 +19,30 @@
             text-align: center;
         }
 
-        /* Titolo di benvenuto */
-        h1 {
-            font-size: 5em;
+        /* Logo MDL */
+        .logo {
+            font-size: 8em;
             font-family: 'Impact', sans-serif;
-            color: #e74c3c; /* Colore rosso */
-            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); /* Effetto ombra per dare profondità */
-            margin-bottom: 20px;
+            color: #e74c3c; /* Rosso intenso */
+            text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.8); /* Ombra per dare profondità */
+            margin-bottom: 30px;
             opacity: 0;
-            animation: fadeInTitle 2s forwards;
+            animation: fadeInLogo 2s forwards;
         }
 
-        /* Animazione per il titolo */
-        @keyframes fadeInTitle {
+        /* Animazione per il logo */
+        @keyframes fadeInLogo {
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
         }
 
         /* Messaggio di benvenuto */
         p {
-            font-size: 1.8em;
+            font-size: 1.5em;
             color: #ddd;
             opacity: 0;
             animation: fadeInMessage 2s forwards;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         /* Animazione per il messaggio */
@@ -51,9 +51,24 @@
             100% { opacity: 1; }
         }
 
+        /* Freccia rossa animata */
+        .arrow {
+            font-size: 3em;
+            color: #e74c3c;
+            margin-bottom: 30px;
+            animation: bounceArrow 1.5s infinite; /* Animazione della freccia */
+        }
+
+        /* Animazione per la freccia */
+        @keyframes bounceArrow {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+
         /* Stile per il link che porta al login */
         a {
-            font-size: 1.5em;
+            font-size: 1.8em;
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
@@ -88,22 +103,52 @@
             width: 50%;
             margin: 40px auto;
         }
+
+        /* Sezione di input della password */
+        #loginArea {
+            display: none;
+            margin-top: 30px;
+        }
+
+        /* Campo di input per la password */
+        .password-input {
+            padding: 10px;
+            font-size: 1.5em;
+            color: #333;
+            border: 2px solid #e74c3c;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .password-input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Logo MDL -->
+    <div class="logo">MDL</div>
+
     <!-- Messaggio di benvenuto -->
-    <div id="authMessage">
-        <h1>Benvenuto sulla mia pagina segreta!</h1>
-        <p>Per accedere alla pagina protetta, clicca il link sottostante:</p>
-        <a href="#" id="loginLink">Accedi alla pagina protetta</a> <!-- Link per il login -->
-    </div>
+    <p>Per accedere alla pagina protetta, clicca il link sottostante:</p>
+
+    <!-- Freccia animata -->
+    <div class="arrow">↓</div>
+
+    <!-- Link per il login -->
+    <a href="#" id="loginLink">Accedi alla pagina protetta</a>
 
     <div class="separator"></div>
 
-    <!-- Area per la password che verrà mostrata dopo aver cliccato il link -->
-    <div id="loginArea" style="display: none;">
+    <!-- Area per la password -->
+    <div id="loginArea">
         <h2>Inserisci la password per accedere:</h2>
+        <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
@@ -111,13 +156,14 @@
         // Funzione per gestire il click sul link per mostrare la sezione della password
         document.getElementById("loginLink").addEventListener("click", function(e) {
             e.preventDefault();
-            document.getElementById("authMessage").style.display = "none"; // Nasconde il messaggio iniziale
+            document.getElementById("loginLink").style.display = "none"; // Nasconde il link
+            document.querySelector(".arrow").style.display = "none"; // Nasconde la freccia
             document.getElementById("loginArea").style.display = "block"; // Mostra la sezione di login
         });
 
         // Funzione per l'autenticazione tramite password
         function authenticate() {
-            var password = prompt("Inserisci la password per accedere:");
+            var password = document.getElementById("passwordInput").value;
             if (password === "MDL") {
                 alert("Accesso riuscito!");
                 window.location.href = "pagina_segreta.html"; // Reindirizza alla pagina protetta
