@@ -20,20 +20,25 @@
             overflow: hidden;
         }
 
-        /* Logo MDL con effetto dinamico */
+        /* Logo MDL interattivo (unico logo che si muove) */
         .logo {
             font-size: 10em;
             font-family: 'Impact', sans-serif;
             color: #e74c3c; /* Rosso brillante */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8); /* Ombra per il logo */
-            animation: fadeInLogo 2s forwards;
+            position: absolute;
+            animation: moveLogo 5s linear infinite; /* Animazione continua per il movimento */
             margin-bottom: 20px;
+            cursor: pointer;
         }
 
-        /* Animazione per il logo */
-        @keyframes fadeInLogo {
-            0% { opacity: 0; transform: scale(0.3); }
-            100% { opacity: 1; transform: scale(1); }
+        /* Animazione per far muovere il logo */
+        @keyframes moveLogo {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(100px, 0); }
+            50% { transform: translate(100px, 100px); }
+            75% { transform: translate(0, 100px); }
+            100% { transform: translate(0, 0); }
         }
 
         /* Sezione di input della password */
@@ -131,7 +136,7 @@
             background-color: #c0392b;
         }
 
-        /* Informazioni di contatto Telegram */
+        /* Nuove informazioni di contatto */
         .contact-info {
             margin-top: 30px;
             font-size: 1.5em;
@@ -151,7 +156,7 @@
 </head>
 <body>
 
-    <!-- Logo MDL -->
+    <!-- Logo MDL interattivo -->
     <div class="logo">MDL</div>
 
     <!-- Area per la password -->
@@ -182,9 +187,10 @@
 
         <div class="separator"></div>
 
-        <!-- Informazioni di contatto Telegram -->
+        <!-- Nuovo testo per il contatto Telegram -->
         <div class="contact-info">
-            <p>Per ulteriori informazioni, contattaci su Telegram: <a href="https://t.me/MercatoDellaDxxxxLibero">@MercatoDellaDxxxxLibero</a></p>
+            <p>Copia la bozza ed inviala al link di seguito:</p>
+            <a href="https://t.me/MercatoDellaDxxxxLibero" target="_blank">Clicca qui per inviare</a>
         </div>
     </div>
 
