@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #141414; /* Sfondo scuro */
+            background-color: #141414;
             color: #fff;
             display: flex;
             justify-content: center;
@@ -22,22 +22,23 @@
             background-size: cover;
         }
 
-        /* Logo MDL animato sotto la barra di selezione prodotto */
+        /* Logo MDL animato prima del login */
         .logo-container {
             position: absolute;
-            bottom: 100px;
+            bottom: 80px;
             display: flex;
             justify-content: center;
+            opacity: 0.7;
         }
 
         .logo {
-            font-size: 10em;
+            font-size: 8em;
             font-family: 'Impact', sans-serif;
-            color: #e74c3c;
+            color: #555;
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
             margin: 0 5px;
             opacity: 0;
-            animation: fadeIn 2s forwards, moveLetter 1s ease-in-out infinite alternate;
+            animation: fadeIn 4s forwards, moveLetter 3s ease-in-out infinite alternate;
         }
 
         .logo:nth-child(1) { animation-delay: 0.2s; }
@@ -54,65 +55,9 @@
             100% { transform: translateY(-20px); }
         }
 
-        /* Banner Crypto Market verticale */
-        .banner {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            font-size: 2em;
-            writing-mode: vertical-rl; /* Testo verticale */
-            color: #fff;
-            font-family: 'Courier New', Courier, monospace;
-            letter-spacing: 4px;
-            font-weight: bold;
-        }
-
-        .crypto-icons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .crypto-icons img {
-            width: 40px;
-            margin-bottom: 10px;
-        }
-
-        /* Barra di selezione prodotto */
-        .menu {
-            margin-top: 200px;
-        }
-
-        select {
-            padding: 15px;
-            font-size: 1.5em;
-            color: #fff;
-            background-color: #333;
-            border: 2px solid #e74c3c;
-            border-radius: 5px;
-        }
-
-        .confirm-button {
-            padding: 15px 30px;
-            font-size: 1.5em;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-
-        .confirm-button:hover {
-            background-color: #c0392b;
-        }
-
-        /* Sezione di login */
+        /* Barra di login */
         #loginArea {
-            margin-top: 30px;
+            margin-top: 200px;
             opacity: 0;
             animation: fadeInLogin 2s forwards;
         }
@@ -150,30 +95,61 @@
         .login-button:hover {
             background-color: #c0392b;
         }
+
+        /* Dopo login, contenuto principale */
+        #mainContent {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        /* Barra di selezione prodotto e servizi */
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 30px;
+        }
+
+        select {
+            padding: 15px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            margin-right: 20px;
+            width: 250px;
+        }
+
+        .confirm-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .confirm-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Crypto market banner rimosso */
+        .banner {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Banner Crypto Market -->
-    <div class="banner">
-        CRYPTO MARKET
-        <div class="crypto-icons">
-            <div>
-                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC">
-                <span>BTC</span>
-            </div>
-            <div>
-                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH">
-                <span>ETH</span>
-            </div>
-            <div>
-                <img src="https://cryptologos.cc/logos/usdc-usd-coin-logo.png" alt="USDC">
-                <span>USDC</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Logo MDL Animato -->
+    <!-- Logo MDL animato prima del login -->
     <div class="logo-container">
         <div class="logo">M</div>
         <div class="logo">D</div>
@@ -187,19 +163,28 @@
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <!-- Contenuto della pagina principale -->
-    <div id="mainContent" style="display: none;">
-        <div class="logo">MDL</div>
+    <!-- Contenuto della pagina principale dopo l'accesso -->
+    <div id="mainContent">
+        <div class="logo" style="font-size: 10em;">MDL</div>
+
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
+        <!-- Barra di selezione prodotto e servizi -->
         <div class="menu">
-            <h2>Seleziona un prodotto</h2>
             <select id="menu">
                 <option value="">Seleziona un prodotto...</option>
                 <option value="Prodotto 1">Prodotto 1</option>
                 <option value="Prodotto 2">Prodotto 2</option>
                 <option value="Prodotto 3">Prodotto 3</option>
             </select>
+
+            <select id="services">
+                <option value="">Seleziona un servizio...</option>
+                <option value="Servizio 1">Servizio 1</option>
+                <option value="Servizio 2">Servizio 2</option>
+                <option value="Servizio 3">Servizio 3</option>
+            </select>
+
             <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
         </div>
     </div>
@@ -209,8 +194,8 @@
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             if (password === "MDL") {
-                document.getElementById("mainContent").style.display = "block"; 
-                document.getElementById("loginArea").style.display = "none"; 
+                document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
+                document.getElementById("loginArea").style.display = "none"; // Nasconde la sezione di login
             } else {
                 alert("Password errata!");
             }
