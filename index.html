@@ -19,6 +19,10 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+            background-image: url('https://via.placeholder.com/1920x1080.png'); /* Immagine di sfondo personalizzata */
+            background-position: center;
+            background-size: cover;
+            background-blur: 5px;
         }
 
         /* Animazione lettera per lettera del logo MDL */
@@ -27,11 +31,11 @@
             justify-content: center;
             margin-top: 50px;
             position: absolute;
-            bottom: 100px; /* Posiziona sotto la barra di selezione prodotto */
+            bottom: 120px; /* Posiziona sotto la barra di selezione prodotto */
         }
 
         .logo {
-            font-size: 10em;
+            font-size: 12em;
             font-family: 'Impact', sans-serif;
             color: #e74c3c; /* Rosso brillante */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8); /* Ombra per il logo */
@@ -55,52 +59,49 @@
             100% { transform: translateY(-20px); }
         }
 
-        /* Banner lato pagina */
+        /* Banner senza fondo con logo delle criptovalute */
         .banner {
             position: absolute;
             top: 50%;
-            left: 10px;
+            right: 10px;
             transform: translateY(-50%);
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            width: 250px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            color: #fff;
+            z-index: 10;
         }
 
         .banner h2 {
-            color: #fff;
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 10px;
-            text-align: center;
+            transform: rotate(90deg); /* Testo verticale */
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 4px;
+            color: #fff;
         }
 
         .cryptos {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
+            flex-direction: column;
+            align-items: center;
         }
 
         .crypto {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #fff;
+            margin: 10px 0;
+            text-align: center;
         }
 
         .crypto img {
-            width: 30px;
-            margin-bottom: 10px;
+            width: 40px;
+            margin-bottom: 5px;
         }
 
         .crypto span {
             font-size: 1.2em;
         }
 
-        /* Stile per il body e la sezione principale */
+        /* Stile per la barra di selezione e conferma bozza */
         #loginArea {
             margin-top: 30px;
             opacity: 0;
@@ -180,7 +181,7 @@
 </head>
 <body>
 
-    <!-- Banner "CRYPTO MARKET" con sigle delle criptovalute -->
+    <!-- Banner "CRYPTO MARKET" verticale -->
     <div class="banner">
         <h2>CRYPTO MARKET</h2>
         <div class="cryptos">
@@ -199,7 +200,7 @@
         </div>
     </div>
 
-    <!-- Logo MDL che si muove lettera per lettera -->
+    <!-- Logo MDL più grande e ombroso -->
     <div class="logo-container">
         <div class="logo">M</div>
         <div class="logo">D</div>
