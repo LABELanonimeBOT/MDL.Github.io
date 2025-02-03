@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - MDL</title>
+    <title>Benvenuto su MDL</title>
     <style>
         /* Stile globale per il body */
         body {
@@ -17,28 +17,20 @@
             margin: 0;
             flex-direction: column;
             text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        /* Animazione di transizione */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         /* Stile per il titolo */
         h1 {
             font-size: 3em;
-            color: #e74c3c; /* Colore rosso per trasmettere forza e attenzione */
+            color: #e74c3c; /* Rosso per un effetto di forza e attenzione */
             margin-bottom: 20px;
-            animation: bounceIn 2s ease-in-out;
+            animation: fadeIn 2s ease-in-out;
         }
 
         /* Animazione per il titolo */
-        @keyframes bounceIn {
-            0% { transform: scale(0); }
-            60% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         /* Stile per il messaggio */
@@ -55,9 +47,25 @@
             100% { opacity: 1; }
         }
 
-        /* Stile per il bottone */
-        button {
-            padding: 15px 30px;
+        /* Stile per il menu */
+        .menu {
+            margin-top: 40px;
+            font-size: 1.5em;
+        }
+
+        .menu select {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin: 10px;
+            border: 1px solid #444;
+        }
+
+        /* Bottone interattivo */
+        .menu button {
+            padding: 12px 24px;
             font-size: 1.2em;
             background-color: #e74c3c;
             color: #fff;
@@ -67,46 +75,16 @@
             transition: background-color 0.3s ease;
         }
 
-        button:hover {
-            background-color: #c0392b; /* Colore rosso più scuro al passaggio del mouse */
-        }
-
-        /* Stile per il menu */
-        .menu {
-            margin-top: 40px;
-            font-size: 1.2em;
-        }
-
-        .menu select {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 1.1em;
-            margin: 10px;
-            border: 1px solid #444;
-        }
-
-        .menu button {
-            padding: 10px 20px;
-            font-size: 1.1em;
-            background-color: #e74c3c;
-            border: none;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
         .menu button:hover {
-            background-color: #c0392b;
+            background-color: #c0392b; /* Rosso più scuro quando si passa sopra */
         }
 
         /* Stile per l'elemento di contatto */
         .contact-info {
             font-size: 1.3em;
             color: #3498db; /* Blu per i link */
-            margin-top: 20px;
-            animation: slideIn 1.5s ease-in-out;
+            margin-top: 30px;
+            animation: slideIn 2s ease-in-out;
         }
 
         /* Animazione per il contatto */
@@ -125,37 +103,63 @@
             text-decoration: underline;
         }
 
+        /* Stile per la riga di separazione */
+        .separator {
+            margin-top: 40px;
+            border-top: 2px solid #e74c3c; /* Linea rossa per separare la sezione */
+            width: 50%;
+            margin: 40px auto;
+        }
     </style>
     <script>
-        // Funzione per mostrare il messaggio di contatto dopo aver selezionato dal menu
-        function showContact() {
-            var selectedOption = document.getElementById("menu").value;
-            if (selectedOption != "") {
-                document.getElementById("contactMessage").style.display = "block";
+        // Funzione per l'autenticazione tramite password
+        function authenticate() {
+            var password = prompt("Inserisci la password per accedere:");
+            if (password === "MDL") {
+                document.getElementById("authMessage").style.display = "none"; // Nasconde il messaggio di autenticazione
+                document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
+            } else {
+                alert("Password errata!"); // Mostra un messaggio di errore
+                window.location.href = "about:blank"; // Chiude la pagina
             }
         }
+
+        // Avvia l'autenticazione al caricamento della pagina
+        window.onload = function() {
+            authenticate();
+        };
     </script>
 </head>
 <body>
-    <!-- Messaggio di benvenuto -->
-    <h1>Benvenuto su MDL</h1>
-    <p>Seleziona un prodotto dal menu per procedere</p>
-
-    <!-- Menu a discesa -->
-    <div class="menu">
-        <select id="menu" onchange="showContact()">
-            <option value="">Seleziona un prodotto...</option>
-            <option value="Prodotto 1">Prodotto 1</option>
-            <option value="Prodotto 2">Prodotto 2</option>
-            <option value="Prodotto 3">Prodotto 3</option>
-        </select>
-        <button onclick="alert('Grazie per aver scelto un prodotto!')">Aggiungi al carrello</button>
+    <!-- Messaggio di autenticazione -->
+    <div id="authMessage" style="display: block;">
+        <h1>Accesso in corso...</h1>
+        <p>Effettua il login per procedere.</p>
     </div>
 
-    <!-- Messaggio di contatto -->
-    <div id="contactMessage" class="contact-info" style="display: none;">
-        <p>Scegli il prodotto dal menu e contatta <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a> per completare l'operazione.</p>
-    </div>
+    <!-- Contenuto principale (mostrato dopo autenticazione) -->
+    <div id="mainContent" style="display: none;">
+        <h1>Benvenuto su MDL</h1>
+        <p>Hai effettuato l'accesso con successo! Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
+        <!-- Menu per scegliere il prodotto -->
+        <div class="menu">
+            <select id="menu">
+                <option value="">Seleziona un prodotto...</option>
+                <option value="Prodotto 1">Prodotto 1</option>
+                <option value="Prodotto 2">Prodotto 2</option>
+                <option value="Prodotto 3">Prodotto 3</option>
+            </select>
+            <button onclick="alert('Grazie per aver scelto un prodotto!')">Aggiungi al carrello</button>
+        </div>
+
+        <!-- Riga separatrice -->
+        <div class="separator"></div>
+
+        <!-- Informazioni di contatto -->
+        <div class="contact-info">
+            <p>Scegli e completa l'ordine contattando: <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a></p>
+        </div>
+    </div>
 </body>
 </html>
