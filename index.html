@@ -137,6 +137,61 @@
             border-color: #3498db;
             outline: none;
         }
+
+        /* Nuove modifiche per la pagina principale */
+        #mainContent {
+            display: none;
+            text-align: center;
+        }
+
+        /* Sezione per la selezione del prodotto */
+        .menu {
+            margin-top: 30px;
+        }
+
+        select {
+            padding: 15px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+        }
+
+        /* Bottone di conferma bozza */
+        .confirm-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .confirm-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Informazioni di contatto Telegram */
+        .contact-info {
+            margin-top: 30px;
+            font-size: 1.5em;
+            color: #ddd;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -163,27 +218,27 @@
     </div>
 
     <!-- Contenuto della pagina principale dopo l'accesso -->
-    <div id="mainContent" style="display:none;">
-        <h1>Benvenuto su MDL</h1>
-        <p>Hai effettuato l'accesso con successo! Ora puoi scegliere il prodotto e completare l'ordine.</p>
+    <div id="mainContent">
+        <!-- Logo MDL grande e interattivo -->
+        <div class="logo">MDL</div>
 
-        <!-- Menu per scegliere il prodotto -->
+        <!-- Seleziona prodotto -->
         <div class="menu">
+            <h2>Seleziona un prodotto</h2>
             <select id="menu">
                 <option value="">Seleziona un prodotto...</option>
                 <option value="Prodotto 1">Prodotto 1</option>
                 <option value="Prodotto 2">Prodotto 2</option>
                 <option value="Prodotto 3">Prodotto 3</option>
             </select>
-            <button onclick="alert('Grazie per aver scelto un prodotto!')">Aggiungi al carrello</button>
+            <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
         </div>
 
-        <!-- Riga separatrice -->
         <div class="separator"></div>
 
-        <!-- Informazioni di contatto -->
+        <!-- Informazioni di contatto Telegram -->
         <div class="contact-info">
-            <p>Scegli e completa l'ordine contattando: <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a></p>
+            <p>Per ulteriori informazioni, contattaci su Telegram: <a href="https://t.me/MercatoDellaDxxxxLibero">@MercatoDellaDxxxxLibero</a></p>
         </div>
     </div>
 
