@@ -3,11 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina di Benvenuto</title>
+    <title>Benvenuto su MDL</title>
+    <style>
+        /* Stile globale per il body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #141414; /* Sfondo scuro */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Titolo di benvenuto */
+        h1 {
+            font-size: 5em;
+            font-family: 'Impact', sans-serif;
+            color: #e74c3c; /* Colore rosso */
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); /* Effetto ombra per dare profondità */
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animazione per il titolo */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Messaggio di benvenuto */
+        p {
+            font-size: 1.8em;
+            color: #ddd;
+            animation: fadeInMessage 2s ease-in-out;
+            margin-bottom: 40px;
+        }
+
+        /* Animazione per il messaggio */
+        @keyframes fadeInMessage {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Stile per il pulsante di accesso */
+        .login-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .login-button:hover {
+            background-color: #c0392b; /* Colore più scuro al passaggio del mouse */
+        }
+
+        /* Separazione */
+        .separator {
+            margin-top: 30px;
+            border-top: 2px solid #e74c3c; /* Linea rossa per separare la sezione */
+            width: 50%;
+            margin: 40px auto;
+        }
+    </style>
 </head>
 <body>
-    <h1>Benvenuto sulla mia pagina segreta!</h1>
-    <p>Per accedere alla pagina protetta, clicca il link sottostante:</p>
-    <a href="stili.html">Accedi alla pagina protetta</a> <!-- Link alla pagina protetta -->
+
+    <!-- Messaggio di benvenuto -->
+    <div id="authMessage">
+        <h1>Benvenuto su MDL</h1>
+        <p>Prima di proseguire, inserisci la password per accedere.</p>
+        <button class="login-button" onclick="window.location.href='stili.html';">Accedi</button>
+    </div>
+
+    <div class="separator"></div>
+    
+    <!-- Istruzioni o altre informazioni -->
+    <p>Accedi per visualizzare i prodotti e completare il tuo ordine.</p>
+
+    <script>
+        // Funzione per l'autenticazione tramite password
+        function authenticate() {
+            var password = prompt("Inserisci la password per accedere:");
+            if (password === "MDL") {
+                document.getElementById("authMessage").style.display = "none"; // Nasconde il messaggio di autenticazione
+                document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
+            } else {
+                alert("Password errata!"); // Mostra un messaggio di errore
+                window.location.href = "about:blank"; // Chiude la pagina
+            }
+        }
+
+        // Avvia l'autenticazione al caricamento della pagina
+        window.onload = function() {
+            authenticate();
+        };
+    </script>
+
+    <!-- Sezione del contenuto principale -->
+    <div id="mainContent" style="display: none;">
+        <h1>Benvenuto su MDL - Area protetta</h1>
+        <p>Hai effettuato l'accesso con successo! Ora puoi scegliere il prodotto e completare l'ordine.</p>
+
+        <!-- Menu per scegliere il prodotto -->
+        <div class="menu">
+            <select id="menu">
+                <option value="">Seleziona un prodotto...</option>
+                <option value="Prodotto 1">Prodotto 1</option>
+                <option value="Prodotto 2">Prodotto 2</option>
+                <option value="Prodotto 3">Prodotto 3</option>
+            </select>
+            <button onclick="alert('Grazie per aver scelto un prodotto!')">Aggiungi al carrello</button>
+        </div>
+
+        <!-- Riga separatrice -->
+        <div class="separator"></div>
+
+        <!-- Informazioni di contatto -->
+        <div class="contact-info">
+            <p>Scegli e completa l'ordine contattando: <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a></p>
+        </div>
+    </div>
 </body>
 </html>
