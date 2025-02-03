@@ -19,7 +19,6 @@
             overflow: hidden;
         }
 
-        /* Logo MDL animato prima del login */
         .logo-container {
             position: absolute;
             top: 10%;
@@ -51,7 +50,6 @@
             100% { transform: translateY(-20px); }
         }
 
-        /* Area di Login */
         #loginArea {
             position: absolute;
             top: 25%;
@@ -94,7 +92,6 @@
             background-color: #c0392b;
         }
 
-        /* Contenuto principale dopo l'accesso */
         #mainContent {
             display: none;
             text-align: center;
@@ -104,7 +101,6 @@
             width: 80%;
         }
 
-        /* Barra di selezione prodotto e servizi */
         .menu {
             display: flex;
             justify-content: flex-start;
@@ -140,10 +136,9 @@
             background-color: #c0392b;
         }
 
-        /* Banner Crypto in movimento orizzontale */
         .crypto-banner {
             position: absolute;
-            top: 20%;
+            top: 10%;
             left: 50%;
             transform: translateX(-50%);
             font-size: 2.5em;
@@ -152,13 +147,18 @@
             color: #888;
             opacity: 0.8;
             white-space: nowrap;
+            animation: cryptoMove 20s infinite linear;
+        }
+
+        @keyframes cryptoMove {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         .crypto-banner span {
             margin-right: 50px;
         }
 
-        /* Aggiunta dei loghi in grigio per BTC, ETH, USDC */
         .crypto-logo {
             width: 40px;
             vertical-align: middle;
@@ -166,7 +166,6 @@
             filter: grayscale(100%);
         }
 
-        /* Link Telegram */
         .telegram-link {
             font-size: 1.5em;
             margin-top: 20px;
@@ -178,7 +177,6 @@
             text-decoration: underline;
         }
 
-        /* Aggiunta di un background con il logo MDL e design fantasioso */
         .background-image {
             position: absolute;
             top: 0;
@@ -194,30 +192,25 @@
 </head>
 <body>
 
-    <!-- Sfondo con il logo e design fantasioso -->
     <div class="background-image"></div>
 
-    <!-- Logo MDL animato prima del login -->
     <div class="logo-container">
         <div class="logo">M</div>
         <div class="logo">D</div>
         <div class="logo">L</div>
     </div>
 
-    <!-- Area di Login -->
     <div id="loginArea">
         <h2>Inserisci la password per accedere:</h2>
         <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password" onkeydown="if(event.key === 'Enter') authenticate()">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <!-- Contenuto della pagina principale dopo l'accesso -->
     <div id="mainContent">
         <div class="logo" style="font-size: 10em;" id="mdlLogo">MDL</div>
 
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
-        <!-- Barra di selezione prodotto e servizi -->
         <div class="menu">
             <select id="productMenu">
                 <option value="">Seleziona un prodotto...</option>
@@ -236,12 +229,9 @@
             <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
         </div>
 
-        <!-- Link Telegram -->
         <a href="https://t.me/tuo_canale" class="telegram-link" target="_blank">Contatta su Telegram</a>
-
     </div>
 
-    <!-- Banner Crypto statico sotto il logo MDL -->
     <div class="crypto-banner">
         Crypto Market
         <span>
@@ -256,21 +246,21 @@
     </div>
 
     <script>
-        // Funzione per l'autenticazione tramite password
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             if (password === "MDL") {
-                document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
-                document.getElementById("loginArea").style.display = "none"; // Nasconde la sezione di login
-
-                // Animazione del logo per indicare l'accesso
-                var logo = document.getElementById("mdlLogo");
-                logo.style.animation = "colorChange 3s forwards";
+                document.getElementById("mainContent").style.display = "block";
+                document.getElementById("loginArea").style.display = "none";
+                document.getElementById("mdlLogo").style.animation = "colorChange 3s forwards";
             } else {
                 alert("Password errata!");
             }
         }
 
-        // Animazione del logo che cambia colore gradualmente
         @keyframes colorChange {
-            
+            0% { color: #333; }
+            100% { color: #e74c3c; }
+        }
+    </script>
+</body>
+</html>
