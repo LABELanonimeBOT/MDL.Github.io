@@ -38,7 +38,6 @@
 
         /* Sezione di input della password */
         #loginArea {
-            display: none;
             margin-top: 30px;
             opacity: 0;
             animation: fadeInLogin 2s forwards;
@@ -194,8 +193,16 @@
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             if (password === "MDL") {
-                document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
-                document.getElementById("loginArea").style.display = "none"; // Nasconde la sezione di login
+                // Mostra il contenuto principale
+                document.getElementById("mainContent").style.display = "block"; 
+                // Nasconde la sezione di login
+                document.getElementById("loginArea").style.display = "none"; 
+                // Riattiva la visibilità dell'area principale con un effetto
+                document.getElementById("mainContent").style.opacity = 0;
+                setTimeout(function() {
+                    document.getElementById("mainContent").style.transition = "opacity 1s ease-in-out";
+                    document.getElementById("mainContent").style.opacity = 1;
+                }, 100);
             } else {
                 alert("Password errata!");
             }
