@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benvenuto su MDL</title>
+    <title>Menu - MDL</title>
     <style>
         /* Stile globale per il body */
         body {
@@ -71,6 +71,36 @@
             background-color: #c0392b; /* Colore rosso più scuro al passaggio del mouse */
         }
 
+        /* Stile per il menu */
+        .menu {
+            margin-top: 40px;
+            font-size: 1.2em;
+        }
+
+        .menu select {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            margin: 10px;
+            border: 1px solid #444;
+        }
+
+        .menu button {
+            padding: 10px 20px;
+            font-size: 1.1em;
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu button:hover {
+            background-color: #c0392b;
+        }
+
         /* Stile per l'elemento di contatto */
         .contact-info {
             font-size: 1.3em;
@@ -97,30 +127,35 @@
 
     </style>
     <script>
-        // Prompt per la password
-        var password = prompt("Inserisci la password per accedere alla pagina:");
-
-        if (password !== "MDL") {  // Cambia "MDL" con la tua password
-            alert("Password errata!");
-            window.location.href = "about:blank"; // Chiude la pagina se la password è errata
-        } else {
-            // Se la password è corretta, mostra il messaggio di benvenuto e il contatto
-            document.getElementById("welcomeMessage").style.display = "block";
-            document.getElementById("contactMessage").style.display = "block";
+        // Funzione per mostrare il messaggio di contatto dopo aver selezionato dal menu
+        function showContact() {
+            var selectedOption = document.getElementById("menu").value;
+            if (selectedOption != "") {
+                document.getElementById("contactMessage").style.display = "block";
+            }
         }
     </script>
 </head>
 <body>
     <!-- Messaggio di benvenuto -->
-    <div id="welcomeMessage" style="display: none;">
-        <h1>Benvenuto su MDL</h1>
-        <p>Hai accesso completo alla pagina protetta!</p>
-        <button onclick="alert('Benvenuto, continua a esplorare!')">Esplora i Prodotti</button>
+    <h1>Benvenuto su MDL</h1>
+    <p>Seleziona un prodotto dal menu per procedere</p>
+
+    <!-- Menu a discesa -->
+    <div class="menu">
+        <select id="menu" onchange="showContact()">
+            <option value="">Seleziona un prodotto...</option>
+            <option value="Prodotto 1">Prodotto 1</option>
+            <option value="Prodotto 2">Prodotto 2</option>
+            <option value="Prodotto 3">Prodotto 3</option>
+        </select>
+        <button onclick="alert('Grazie per aver scelto un prodotto!')">Aggiungi al carrello</button>
     </div>
 
-    <!-- Sezione di contatto per completare l'acquisto -->
+    <!-- Messaggio di contatto -->
     <div id="contactMessage" class="contact-info" style="display: none;">
-        <p>Scegli i prodotti selezionati e contatta <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a> per completare l'operazione.</p>
+        <p>Scegli il prodotto dal menu e contatta <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a> per completare l'operazione.</p>
     </div>
+
 </body>
 </html>
