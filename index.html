@@ -26,11 +26,12 @@
             color: #e74c3c; /* Colore rosso */
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7); /* Effetto ombra per dare profondità */
             margin-bottom: 20px;
-            animation: fadeIn 2s ease-in-out;
+            opacity: 0;
+            animation: fadeInTitle 2s forwards;
         }
 
         /* Animazione per il titolo */
-        @keyframes fadeIn {
+        @keyframes fadeInTitle {
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
         }
@@ -39,7 +40,8 @@
         p {
             font-size: 1.8em;
             color: #ddd;
-            animation: fadeInMessage 2s ease-in-out;
+            opacity: 0;
+            animation: fadeInMessage 2s forwards;
             margin-bottom: 40px;
         }
 
@@ -49,7 +51,19 @@
             100% { opacity: 1; }
         }
 
-        /* Stile per il pulsante di accesso */
+        /* Stile per il link che porta al login */
+        a {
+            font-size: 1.5em;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Pulsante di accesso */
         .login-button {
             padding: 15px 30px;
             font-size: 1.5em;
@@ -64,13 +78,13 @@
         }
 
         .login-button:hover {
-            background-color: #c0392b; /* Colore più scuro al passaggio del mouse */
+            background-color: #c0392b;
         }
 
         /* Separazione */
         .separator {
             margin-top: 30px;
-            border-top: 2px solid #e74c3c; /* Linea rossa per separare la sezione */
+            border-top: 2px solid #e74c3c;
             width: 50%;
             margin: 40px auto;
         }
@@ -80,58 +94,37 @@
 
     <!-- Messaggio di benvenuto -->
     <div id="authMessage">
-        <h1>Benvenuto su MDL</h1>
-        <p>Prima di proseguire, inserisci la password per accedere.</p>
-        <button class="login-button" onclick="window.location.href='stili.html';">Accedi</button>
+        <h1>Benvenuto sulla mia pagina segreta!</h1>
+        <p>Per accedere alla pagina protetta, clicca il link sottostante:</p>
+        <a href="#" id="loginLink">Accedi alla pagina protetta</a> <!-- Link per il login -->
     </div>
 
     <div class="separator"></div>
-    
-    <!-- Istruzioni o altre informazioni -->
-    <p>Accedi per visualizzare i prodotti e completare il tuo ordine.</p>
+
+    <!-- Area per la password che verrà mostrata dopo aver cliccato il link -->
+    <div id="loginArea" style="display: none;">
+        <h2>Inserisci la password per accedere:</h2>
+        <button class="login-button" onclick="authenticate()">Accedi</button>
+    </div>
 
     <script>
+        // Funzione per gestire il click sul link per mostrare la sezione della password
+        document.getElementById("loginLink").addEventListener("click", function(e) {
+            e.preventDefault();
+            document.getElementById("authMessage").style.display = "none"; // Nasconde il messaggio iniziale
+            document.getElementById("loginArea").style.display = "block"; // Mostra la sezione di login
+        });
+
         // Funzione per l'autenticazione tramite password
         function authenticate() {
             var password = prompt("Inserisci la password per accedere:");
             if (password === "MDL") {
-                document.getElementById("authMessage").style.display = "none"; // Nasconde il messaggio di autenticazione
-                document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
+                alert("Accesso riuscito!");
+                window.location.href = "pagina_segreta.html"; // Reindirizza alla pagina protetta
             } else {
-                alert("Password errata!"); // Mostra un messaggio di errore
-                window.location.href = "about:blank"; // Chiude la pagina
+                alert("Password errata!");
             }
         }
-
-        // Avvia l'autenticazione al caricamento della pagina
-        window.onload = function() {
-            authenticate();
-        };
     </script>
-
-    <!-- Sezione del contenuto principale -->
-    <div id="mainContent" style="display: none;">
-        <h1>Benvenuto su MDL - Area protetta</h1>
-        <p>Hai effettuato l'accesso con successo! Ora puoi scegliere il prodotto e completare l'ordine.</p>
-
-        <!-- Menu per scegliere il prodotto -->
-        <div class="menu">
-            <select id="menu">
-                <option value="">Seleziona un prodotto...</option>
-                <option value="Prodotto 1">Prodotto 1</option>
-                <option value="Prodotto 2">Prodotto 2</option>
-                <option value="Prodotto 3">Prodotto 3</option>
-            </select>
-            <button onclick="alert('Grazie per aver scelto un prodotto!')">Aggiungi al carrello</button>
-        </div>
-
-        <!-- Riga separatrice -->
-        <div class="separator"></div>
-
-        <!-- Informazioni di contatto -->
-        <div class="contact-info">
-            <p>Scegli e completa l'ordine contattando: <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a></p>
-        </div>
-    </div>
 </body>
 </html>
