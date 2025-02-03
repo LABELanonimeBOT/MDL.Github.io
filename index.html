@@ -15,35 +15,31 @@
             height: 100vh;
             margin: 0;
             text-align: center;
-            overflow: hidden;
             position: relative;
-            background-image: url('https://via.placeholder.com/1920x1080.png'); /* Sfondo personalizzato */
-            background-position: center;
-            background-size: cover;
+            overflow: hidden;
         }
 
         /* Logo MDL animato prima del login */
         .logo-container {
             position: absolute;
-            bottom: 80px;
+            bottom: 100px;
             display: flex;
             justify-content: center;
-            opacity: 0.7;
+            width: 100%;
         }
 
         .logo {
             font-size: 8em;
             font-family: 'Impact', sans-serif;
-            color: #555;
+            color: #333;
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
-            margin: 0 5px;
             opacity: 0;
-            animation: fadeIn 4s forwards, moveLetter 3s ease-in-out infinite alternate;
+            animation: fadeIn 4s forwards, moveLetter 4s ease-in-out infinite alternate;
         }
 
-        .logo:nth-child(1) { animation-delay: 0.2s; }
+        .logo:nth-child(1) { animation-delay: 0s; }
         .logo:nth-child(2) { animation-delay: 0.4s; }
-        .logo:nth-child(3) { animation-delay: 0.6s; }
+        .logo:nth-child(3) { animation-delay: 0.8s; }
 
         @keyframes fadeIn {
             0% { opacity: 0; transform: scale(0.5); }
@@ -55,9 +51,11 @@
             100% { transform: translateY(-20px); }
         }
 
-        /* Barra di login */
+        /* Area di Login */
         #loginArea {
-            margin-top: 200px;
+            position: absolute;
+            top: 20%;
+            width: 100%;
             opacity: 0;
             animation: fadeInLogin 2s forwards;
         }
@@ -68,7 +66,7 @@
         }
 
         .password-input {
-            padding: 10px;
+            padding: 12px;
             font-size: 1.5em;
             color: #333;
             border: 2px solid #e74c3c;
@@ -80,7 +78,7 @@
         }
 
         .login-button {
-            padding: 15px 30px;
+            padding: 12px 25px;
             font-size: 1.5em;
             background-color: #e74c3c;
             color: #fff;
@@ -96,14 +94,14 @@
             background-color: #c0392b;
         }
 
-        /* Dopo login, contenuto principale */
+        /* Contenuto principale dopo l'accesso */
         #mainContent {
             display: none;
+            text-align: center;
             position: absolute;
             top: 50%;
-            left: 50%;
             transform: translate(-50%, -50%);
-            text-align: center;
+            width: 80%;
         }
 
         /* Barra di selezione prodotto e servizi */
@@ -111,10 +109,11 @@
             display: flex;
             justify-content: flex-start;
             margin-top: 30px;
+            width: 100%;
         }
 
         select {
-            padding: 15px;
+            padding: 12px;
             font-size: 1.5em;
             color: #fff;
             background-color: #333;
@@ -125,7 +124,7 @@
         }
 
         .confirm-button {
-            padding: 15px 30px;
+            padding: 12px 25px;
             font-size: 1.5em;
             background-color: #e74c3c;
             color: #fff;
@@ -141,13 +140,44 @@
             background-color: #c0392b;
         }
 
-        /* Crypto market banner rimosso */
-        .banner {
-            display: none;
+        /* Banner senza fondo (Crypto Market) */
+        .crypto-banner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: rotate(90deg);
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            opacity: 0.7;
+            margin: 20px;
+        }
+
+        .crypto-banner span {
+            padding: 5px 15px;
+            background-color: #333;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        /* Aggiunta di un background con il logo MDL e disegno fantasioso */
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://via.placeholder.com/1920x1080.png'); /* Sostituisci con il tuo sfondo */
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
+
+    <!-- Sfondo con il logo e design fantasioso -->
+    <div class="background-image"></div>
 
     <!-- Logo MDL animato prima del login -->
     <div class="logo-container">
@@ -171,14 +201,14 @@
 
         <!-- Barra di selezione prodotto e servizi -->
         <div class="menu">
-            <select id="menu">
+            <select id="productMenu">
                 <option value="">Seleziona un prodotto...</option>
                 <option value="Prodotto 1">Prodotto 1</option>
                 <option value="Prodotto 2">Prodotto 2</option>
                 <option value="Prodotto 3">Prodotto 3</option>
             </select>
 
-            <select id="services">
+            <select id="serviceMenu">
                 <option value="">Seleziona un servizio...</option>
                 <option value="Servizio 1">Servizio 1</option>
                 <option value="Servizio 2">Servizio 2</option>
