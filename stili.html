@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticazione Completa</title>
+    <title>Benvenuto su MDL</title>
     <style>
         /* Stile globale per il body */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #141414; /* Colore scuro per sicurezza */
+            background-color: #141414; /* Sfondo scuro per trasmettere sicurezza */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -29,7 +29,7 @@
         /* Stile per il titolo */
         h1 {
             font-size: 3em;
-            color: #e74c3c; /* Colore rosso per trasmettere forza */
+            color: #e74c3c; /* Colore rosso per trasmettere forza e attenzione */
             margin-bottom: 20px;
             animation: bounceIn 2s ease-in-out;
         }
@@ -68,28 +68,21 @@
         }
 
         button:hover {
-            background-color: #c0392b; /* Colore più scuro al passaggio del mouse */
+            background-color: #c0392b; /* Colore rosso più scuro al passaggio del mouse */
         }
 
-        /* Stile per l'elemento che appare dopo l'autenticazione */
-        .success-message {
-            font-size: 1.8em;
-            color: #27ae60; /* Verde per successi */
-            margin-top: 30px;
+        /* Stile per l'elemento di contatto */
+        .contact-info {
+            font-size: 1.3em;
+            color: #3498db; /* Blu per i link */
+            margin-top: 20px;
             animation: slideIn 1.5s ease-in-out;
         }
 
-        /* Animazione per il successo */
+        /* Animazione per il contatto */
         @keyframes slideIn {
             0% { transform: translateY(-100%); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
-        }
-
-        /* Stile per il testo di contatto */
-        .contact-info {
-            font-size: 1.2em;
-            color: #3498db; /* Blu per i link */
-            margin-top: 20px;
         }
 
         .contact-info a {
@@ -101,6 +94,7 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
+
     </style>
     <script>
         // Prompt per la password
@@ -111,23 +105,22 @@
             window.location.href = "about:blank"; // Chiude la pagina se la password è errata
         } else {
             // Se la password è corretta, mostra il messaggio di benvenuto
-            document.getElementById("successMessage").style.display = "block";
+            document.getElementById("welcomeMessage").style.display = "block";
+            document.getElementById("contactMessage").style.display = "block";
         }
     </script>
 </head>
 <body>
-    <h1>Autenticazione Completa</h1>
-    <p>Sei stato autenticato con successo!</p>
-
-    <!-- Messaggio che appare se la password è corretta -->
-    <div id="successMessage" class="success-message" style="display: none;">
+    <!-- Messaggio di benvenuto -->
+    <div id="welcomeMessage" style="display: none;">
+        <h1>Benvenuto su MDL</h1>
         <p>Hai accesso completo alla pagina protetta!</p>
-        <button onclick="alert('Benvenuto, continua a esplorare!')">Esplora il Contenuto</button>
+        <button onclick="alert('Benvenuto, continua a esplorare!')">Esplora i Prodotti</button>
+    </div>
 
-        <!-- Aggiungi il testo di contatto per completare l'acquisto -->
-        <div class="contact-info">
-            <p>Per completare l'acquisto, contatta <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a></p>
-        </div>
+    <!-- Sezione di contatto per completare l'acquisto -->
+    <div id="contactMessage" class="contact-info" style="display: none;">
+        <p>Scegli i prodotti selezionati e contatta <a href="mailto:MercatoDellaDxxxxLibero@example.com">@MercatoDellaDxxxxLibero</a> per completare l'operazione.</p>
     </div>
 </body>
 </html>
