@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La mia pagina segreta</title>
+    <title>Pagina Protetta</title>
+    <script>
+        // Prompt per la password
+        var password = prompt("Inserisci la password per accedere alla pagina:");
+        if (password !== "MDL") {  // Cambia "MDL" con la tua password
+            alert("Password errata!");
+            window.location.href = "about:blank"; // Chiude la pagina se la password è errata
+        }
+    </script>
 </head>
 <body>
-    <h1>Benvenuto sulla mia pagina!</h1>
-    <p>Questa è una pagina segreta e accessibile solo con il link.</p>
-</body>
+    <h1>BENVENUTO SU MDL</h1>
+    <p>SEI QUI GRAZIE AL TUO LINK UFFICIALE.</p>
+</body> <!-- Corretto tag di chiusura -->
 </html>
+
+
+
+
+
+    
