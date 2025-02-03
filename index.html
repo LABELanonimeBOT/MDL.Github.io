@@ -146,18 +146,30 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 2em;
+            font-size: 1.8em;
             font-weight: bold;
-            color: #fff;
+            color: #888;
             opacity: 0.7;
             white-space: nowrap;
             display: inline-block;
-            animation: cryptoMove 10s linear infinite;
+            animation: cryptoMove 30s linear infinite;
         }
 
         @keyframes cryptoMove {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
+        }
+
+        .crypto-banner span {
+            margin-right: 50px;
+        }
+
+        /* Aggiunta dei loghi in grigio per BTC, ETH, USDC */
+        .crypto-logo {
+            width: 40px;
+            vertical-align: middle;
+            margin-left: 10px;
+            filter: grayscale(100%);
         }
 
         /* Link Telegram */
@@ -238,6 +250,9 @@
     <!-- Banner Crypto in movimento orizzontale -->
     <div class="crypto-banner">
         <span>Crypto Market</span>
+        <img src="https://via.placeholder.com/40x40?text=BTC" alt="BTC" class="crypto-logo">
+        <img src="https://via.placeholder.com/40x40?text=ETH" alt="ETH" class="crypto-logo">
+        <img src="https://via.placeholder.com/40x40?text=USDC" alt="USDC" class="crypto-logo">
     </div>
 
     <script>
@@ -251,7 +266,6 @@
                 // Animazione del logo per indicare l'accesso
                 var logo = document.getElementById("mdlLogo");
                 logo.style.animation = "colorChange 3s forwards";
-
             } else {
                 alert("Password errata!");
             }
