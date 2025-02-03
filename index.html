@@ -51,61 +51,6 @@
             100% { opacity: 1; }
         }
 
-        /* Freccia animata */
-        .arrow {
-            font-size: 3em;
-            color: #e74c3c;
-            animation: bounceArrow 1.5s infinite; /* Animazione della freccia */
-            margin-bottom: 40px;
-        }
-
-        /* Animazione per la freccia */
-        @keyframes bounceArrow {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* Stile per il link che porta al login */
-        a {
-            font-size: 1.8em;
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Pulsante di accesso */
-        .login-button {
-            padding: 15px 30px;
-            font-size: 1.5em;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        .login-button:hover {
-            background-color: #c0392b;
-        }
-
-        /* Separazione */
-        .separator {
-            margin-top: 30px;
-            border-top: 2px solid #e74c3c;
-            width: 50%;
-            margin: 40px auto;
-        }
-
         /* Sezione di input della password */
         #loginArea {
             display: none;
@@ -138,7 +83,33 @@
             outline: none;
         }
 
-        /* Nuove modifiche per la pagina principale */
+        /* Pulsante di accesso */
+        .login-button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .login-button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Separazione */
+        .separator {
+            margin-top: 30px;
+            border-top: 2px solid #e74c3c;
+            width: 50%;
+            margin: 40px auto;
+        }
+
+        /* Sezione principale dopo login */
         #mainContent {
             display: none;
             text-align: center;
@@ -202,9 +173,6 @@
     <!-- Messaggio di benvenuto -->
     <p>Per accedere alla pagina protetta, clicca il link sottostante:</p>
 
-    <!-- Freccia animata -->
-    <div class="arrow">↓</div>
-
     <!-- Link per il login -->
     <a href="#" id="loginLink">Accedi alla pagina protetta</a>
 
@@ -221,6 +189,8 @@
     <div id="mainContent">
         <!-- Logo MDL grande e interattivo -->
         <div class="logo">MDL</div>
+
+        <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
         <!-- Seleziona prodotto -->
         <div class="menu">
@@ -247,7 +217,6 @@
         document.getElementById("loginLink").addEventListener("click", function(e) {
             e.preventDefault();
             document.getElementById("loginLink").style.display = "none"; // Nasconde il link
-            document.querySelector(".arrow").style.display = "none"; // Nasconde la freccia
             document.getElementById("loginArea").style.display = "block"; // Mostra la sezione di login
         });
 
@@ -255,7 +224,6 @@
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             if (password === "MDL") {
-                alert("Accesso riuscito!");
                 document.getElementById("mainContent").style.display = "block"; // Mostra il contenuto principale
                 document.getElementById("loginArea").style.display = "none"; // Nasconde la sezione di login
             } else {
@@ -263,5 +231,6 @@
             }
         }
     </script>
+
 </body>
 </html>
