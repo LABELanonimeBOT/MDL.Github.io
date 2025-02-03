@@ -18,43 +18,100 @@
             flex-direction: column;
             text-align: center;
             overflow: hidden;
+            position: relative;
         }
 
-        /* Logo MDL interattivo (unico logo che si muove) */
+        /* Animazione lettera per lettera del logo MDL */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            position: absolute;
+            bottom: 100px; /* Posiziona sotto la barra di selezione prodotto */
+        }
+
         .logo {
             font-size: 10em;
             font-family: 'Impact', sans-serif;
             color: #e74c3c; /* Rosso brillante */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8); /* Ombra per il logo */
+            margin: 0 10px;
+            opacity: 0;
+            animation: fadeIn 2s forwards, moveLetter 1s ease-in-out infinite alternate;
+        }
+
+        .logo:nth-child(1) { animation-delay: 0.2s; }
+        .logo:nth-child(2) { animation-delay: 0.4s; }
+        .logo:nth-child(3) { animation-delay: 0.6s; }
+
+        /* Animazione per le lettere */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes moveLetter {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        /* Banner lato pagina */
+        .banner {
             position: absolute;
-            animation: moveLogo 5s linear infinite; /* Animazione continua per il movimento */
-            margin-bottom: 20px;
-            cursor: pointer;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
         }
 
-        /* Animazione per far muovere il logo */
-        @keyframes moveLogo {
-            0% { transform: translate(0, 0); }
-            25% { transform: translate(100px, 0); }
-            50% { transform: translate(100px, 100px); }
-            75% { transform: translate(0, 100px); }
-            100% { transform: translate(0, 0); }
+        .banner h2 {
+            color: #fff;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
-        /* Sezione di input della password */
+        .cryptos {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .crypto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+        }
+
+        .crypto img {
+            width: 30px;
+            margin-bottom: 10px;
+        }
+
+        .crypto span {
+            font-size: 1.2em;
+        }
+
+        /* Stile per il body e la sezione principale */
         #loginArea {
             margin-top: 30px;
             opacity: 0;
             animation: fadeInLogin 2s forwards;
         }
 
-        /* Animazione per la sezione di login */
         @keyframes fadeInLogin {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
 
-        /* Campo di input per la password */
         .password-input {
             padding: 10px;
             font-size: 1.5em;
@@ -67,12 +124,6 @@
             text-align: center;
         }
 
-        .password-input:focus {
-            border-color: #3498db;
-            outline: none;
-        }
-
-        /* Pulsante di accesso */
         .login-button {
             padding: 15px 30px;
             font-size: 1.5em;
@@ -90,21 +141,12 @@
             background-color: #c0392b;
         }
 
-        /* Separazione */
-        .separator {
-            margin-top: 30px;
-            border-top: 2px solid #e74c3c;
-            width: 50%;
-            margin: 40px auto;
-        }
-
-        /* Sezione principale dopo login */
+        /* Contenuto principale */
         #mainContent {
             display: none;
             text-align: center;
         }
 
-        /* Sezione per la selezione del prodotto */
         .menu {
             margin-top: 30px;
         }
@@ -118,7 +160,6 @@
             border-radius: 5px;
         }
 
-        /* Bottone di conferma bozza */
         .confirm-button {
             padding: 15px 30px;
             font-size: 1.5em;
@@ -135,29 +176,35 @@
         .confirm-button:hover {
             background-color: #c0392b;
         }
-
-        /* Nuove informazioni di contatto */
-        .contact-info {
-            margin-top: 30px;
-            font-size: 1.5em;
-            color: #ddd;
-        }
-
-        .contact-info a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Logo MDL interattivo -->
-    <div class="logo">MDL</div>
+    <!-- Banner "CRYPTO MARKET" con sigle delle criptovalute -->
+    <div class="banner">
+        <h2>CRYPTO MARKET</h2>
+        <div class="cryptos">
+            <div class="crypto">
+                <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin">
+                <span>BTC</span>
+            </div>
+            <div class="crypto">
+                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum">
+                <span>ETH</span>
+            </div>
+            <div class="crypto">
+                <img src="https://cryptologos.cc/logos/usdc-usd-coin-logo.png" alt="USDC">
+                <span>USDC</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo MDL che si muove lettera per lettera -->
+    <div class="logo-container">
+        <div class="logo">M</div>
+        <div class="logo">D</div>
+        <div class="logo">L</div>
+    </div>
 
     <!-- Area per la password -->
     <div id="loginArea">
@@ -168,12 +215,9 @@
 
     <!-- Contenuto della pagina principale dopo l'accesso -->
     <div id="mainContent">
-        <!-- Logo MDL grande e interattivo -->
         <div class="logo">MDL</div>
-
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
-        <!-- Seleziona prodotto -->
         <div class="menu">
             <h2>Seleziona un prodotto</h2>
             <select id="menu">
@@ -184,14 +228,6 @@
             </select>
             <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
         </div>
-
-        <div class="separator"></div>
-
-        <!-- Nuovo testo per il contatto Telegram -->
-        <div class="contact-info">
-            <p>Copia la bozza ed inviala al link di seguito:</p>
-            <a href="https://t.me/MercatoDellaDxxxxLibero" target="_blank">Clicca qui per inviare</a>
-        </div>
     </div>
 
     <script>
@@ -199,16 +235,8 @@
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             if (password === "MDL") {
-                // Mostra il contenuto principale
                 document.getElementById("mainContent").style.display = "block"; 
-                // Nasconde la sezione di login
                 document.getElementById("loginArea").style.display = "none"; 
-                // Riattiva la visibilità dell'area principale con un effetto
-                document.getElementById("mainContent").style.opacity = 0;
-                setTimeout(function() {
-                    document.getElementById("mainContent").style.transition = "opacity 1s ease-in-out";
-                    document.getElementById("mainContent").style.opacity = 1;
-                }, 100);
             } else {
                 alert("Password errata!");
             }
@@ -217,4 +245,3 @@
 
 </body>
 </html>
- 
