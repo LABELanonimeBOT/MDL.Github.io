@@ -22,7 +22,7 @@
         /* Logo MDL animato prima del login */
         .logo-container {
             position: absolute;
-            bottom: 120px;
+            top: 10%;
             display: flex;
             justify-content: center;
             width: 100%;
@@ -143,7 +143,7 @@
         /* Banner Crypto in movimento orizzontale */
         .crypto-banner {
             position: absolute;
-            bottom: 20px;
+            top: 20%;
             left: 50%;
             transform: translateX(-50%);
             font-size: 2.5em;
@@ -152,13 +152,6 @@
             color: #888;
             opacity: 0.8;
             white-space: nowrap;
-            display: inline-block;
-            animation: cryptoMove 60s linear infinite;
-        }
-
-        @keyframes cryptoMove {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
         }
 
         .crypto-banner span {
@@ -248,12 +241,18 @@
 
     </div>
 
-    <!-- Banner Crypto in movimento orizzontale -->
+    <!-- Banner Crypto statico sotto il logo MDL -->
     <div class="crypto-banner">
-        <span>Crypto Market</span>
-        <img src="https://via.placeholder.com/40x40?text=BTC" alt="BTC" class="crypto-logo">
-        <img src="https://via.placeholder.com/40x40?text=ETH" alt="ETH" class="crypto-logo">
-        <img src="https://via.placeholder.com/40x40?text=USDC" alt="USDC" class="crypto-logo">
+        Crypto Market
+        <span>
+            BTC <img src="https://via.placeholder.com/40x40?text=BTC" alt="BTC" class="crypto-logo">
+        </span>
+        <span>
+            ETH <img src="https://via.placeholder.com/40x40?text=ETH" alt="ETH" class="crypto-logo">
+        </span>
+        <span>
+            USDC <img src="https://via.placeholder.com/40x40?text=USDC" alt="USDC" class="crypto-logo">
+        </span>
     </div>
 
     <script>
@@ -274,10 +273,4 @@
 
         // Animazione del logo che cambia colore gradualmente
         @keyframes colorChange {
-            0% { color: #333; }
-            100% { color: #e74c3c; }
-        }
-    </script>
-
-</body>
-</html>
+            
