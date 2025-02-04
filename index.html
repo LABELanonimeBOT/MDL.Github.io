@@ -18,7 +18,7 @@
             position: relative;
         }
 
-        /* Logo MDL (grigio inizialmente) */
+        /* Logo MDL iniziale */
         .logo-container {
             position: absolute;
             top: 15%;
@@ -32,13 +32,8 @@
             font-family: 'Impact', sans-serif;
             color: #808080; /* Colore grigio iniziale */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
-            opacity: 0;
-            animation: fadeIn 4s forwards;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: scale(0.5); }
-            100% { opacity: 1; transform: scale(1); }
+            opacity: 1;
+            transition: color 2s ease; /* Cambia colore lentamente */
         }
 
         /* Login */
@@ -150,30 +145,6 @@
             background-color: #c0392b;
         }
 
-        /* Logo criptovalute in alto a destra */
-        .crypto-logos {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .crypto-logo {
-            width: 30px;
-            height: 30px;
-            filter: grayscale(100%);
-        }
-
-        /* Logo MDL illuminato di rosso dopo l'accesso */
-        #mdlLogo {
-            color: #808080; /* Colore grigio iniziale */
-            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
-            font-size: 6em;
-            transition: color 2s ease; /* Cambia colore lentamente */
-        }
-
     </style>
 </head>
 <body>
@@ -189,7 +160,7 @@
     </div>
 
     <div id="mainContent">
-        <div class="logo" id="mdlLogoAfterLogin">MDL</div>
+        <div class="logo" id="mdlLogoAfterLogin" style="font-size: 6em;">MDL</div>
 
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
@@ -214,12 +185,6 @@
         <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank">Invia bozza qui</a>
     </div>
 
-    <div class="crypto-logos">
-        <img src="https://via.placeholder.com/40x40?text=BTC" alt="Bitcoin" class="crypto-logo">
-        <img src="https://via.placeholder.com/40x40?text=ETH" alt="Ethereum" class="crypto-logo">
-        <img src="https://via.placeholder.com/40x40?text=USDC" alt="USDC" class="crypto-logo">
-    </div>
-
     <script>
         // Funzione di autenticazione
         function authenticate() {
@@ -232,12 +197,12 @@
                 // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
                 
-                // Nasconde il logo MDL grigio
+                // Nasconde il logo MDL iniziale
                 document.getElementById("logoContainer").style.display = "none";
                 
-                // Cambia il colore del logo MDL in rosso
+                // Mostra il logo MDL rosso
                 var mdlLogo = document.getElementById("mdlLogoAfterLogin");
-                mdlLogo.style.color = "#e74c3c"; // Cambia il colore in rosso
+                mdlLogo.style.color = "#e74c3c"; // Colore rosso
             } else {
                 alert("Password errata!");
             }
