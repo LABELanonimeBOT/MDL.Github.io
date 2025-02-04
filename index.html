@@ -16,13 +16,12 @@
             margin: 0;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         /* Logo MDL */
         .logo-container {
             position: absolute;
-            top: 10%;
+            top: 15%;
             display: flex;
             justify-content: center;
             width: 100%;
@@ -170,12 +169,7 @@
             color: #808080;
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
             font-size: 6em;
-            animation: changeColor 3s forwards;
-        }
-
-        @keyframes changeColor {
-            0% { color: #808080; }
-            100% { color: #e74c3c; }
+            transition: color 2s ease;
         }
 
         /* Centra il contenuto */
@@ -249,7 +243,8 @@
                 document.getElementById("loginArea").style.display = "none";
                 
                 // Cambia il colore del logo MDL
-                document.getElementById("mdlLogo").style.animation = "changeColor 3s forwards";
+                var mdlLogo = document.getElementById("mdlLogo");
+                mdlLogo.style.color = "#e74c3c"; // Cambia il colore in rosso
             } else {
                 alert("Password errata!");
             }
@@ -265,4 +260,3 @@
 
 </body>
 </html>
- 
