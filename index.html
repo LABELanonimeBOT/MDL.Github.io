@@ -57,6 +57,18 @@
         .login-button:hover {
             background-color: #c0392b;
         }
+
+        /* Contenuto della pagina principale */
+        #mainContent {
+            display: none; /* Non visibile fino a quando non avviene l'accesso */
+            text-align: center;
+        }
+
+        .main-logo {
+            font-size: 6em;
+            font-family: 'Impact', sans-serif;
+            color: #e74c3c; /* Rosso */
+        }
     </style>
 </head>
 <body>
@@ -72,16 +84,28 @@
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
+    <!-- Pagina principale (visibile dopo il login) -->
+    <div id="mainContent">
+        <div class="main-logo" id="mdlLogoMain">MDL</div>
+        <h2>Benvenuto nella pagina principale!</h2>
+        <p>Ora puoi selezionare il prodotto e completare l'ordine.</p>
+        <!-- Aggiungi ulteriori contenuti qui, come menu di selezione prodotto o altro -->
+    </div>
+
     <script>
         // Funzione di autenticazione
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             
             if (password === "MDL") {
-                // Cambia il colore del logo a rosso
+                // Cambia il colore del logo nella pagina principale
                 document.getElementById("mdlLogo").style.color = "#e74c3c";  // Colore rosso
-                // Nasconde l'area di login (se necessario)
-                document.getElementById("loginArea").innerHTML = "<h2>Accesso riuscito! Benvenuto.</h2>";
+
+                // Mostra il contenuto principale
+                document.getElementById("mainContent").style.display = "block";
+
+                // Nasconde l'area di login
+                document.getElementById("loginArea").style.display = "none";
             } else {
                 alert("Password errata!");
             }
