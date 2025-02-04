@@ -72,12 +72,17 @@
 
         /* Modifica logo MDL quando password corretta */
         #mdlLogo {
-            animation: changeColor 2s forwards;
+            animation: changeColor 2s forwards, bounceLogo 1s infinite;
         }
 
         @keyframes changeColor {
             0% { color: #808080; }
             100% { color: #e74c3c; }
+        }
+
+        @keyframes bounceLogo {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         /* Link Telegram */
@@ -97,7 +102,7 @@
 <body>
 
     <!-- Logo MDL sopra la barra della password -->
-    <div class="logo-container">
+    <div class="logo-container" id="logoArea">
         <div class="logo" id="mdlLogo">MDL</div>
     </div>
 
@@ -144,8 +149,8 @@
                 document.getElementById("mainContent").style.display = "block";
                 document.getElementById("loginArea").style.display = "none";
 
-                // Cambia il colore del logo
-                document.getElementById("mdlLogo").style.animation = "changeColor 2s forwards";
+                // Cambia il colore del logo e animazione di rimbalzo
+                document.getElementById("mdlLogo").style.animation = "changeColor 2s forwards, bounceLogo 1s infinite";
             } else {
                 alert("Password errata!");
             }
