@@ -28,7 +28,6 @@
             font-family: 'Impact', sans-serif;
             color: #808080; /* Grigio */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
-            transition: color 1s ease; /* Transizione fluida per il cambio di colore */
         }
 
         /* Barra di inserimento password */
@@ -63,6 +62,7 @@
         #mainContent {
             display: none;
             text-align: center;
+            margin-top: 20px;
         }
 
         .menu {
@@ -113,7 +113,7 @@
     <!-- Pagina di Login -->
     <div id="loginArea">
         <div class="logo-container">
-            <div class="logo">MDL</div>
+            <div class="logo" id="mdlLogo">MDL</div>
         </div>
         
         <h2>Inserisci la password per accedere:</h2>
@@ -124,7 +124,7 @@
     <!-- Pagina principale dopo il login -->
     <div id="mainContent">
         <div class="logo-container">
-            <div class="logo" id="mdlLogo">MDL</div>
+            <div class="logo" id="mdlLogoMain">MDL</div>
         </div>
 
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
@@ -162,8 +162,8 @@
                 // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
                 
-                // Cambia il colore del logo a rosso
-                document.getElementById("mdlLogo").style.color = "#e74c3c";
+                // Cambia il colore del logo MDL a rosso
+                document.getElementById("mdlLogoMain").style.color = "#e74c3c";  // Colore rosso
             } else {
                 alert("Password errata!");
             }
