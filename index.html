@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accesso MDL</title>
     <style>
+        /* Corpo della pagina */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #141414;
@@ -14,28 +15,24 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            text-align: center;
             flex-direction: column;
+            text-align: center;
         }
 
-        /* Logo MDL sopra la barra della password */
+        /* Logo MDL (grigio iniziale) sopra la barra della password */
         .logo-container {
-            margin-bottom: 30px; /* Spazio tra logo e barra di password */
+            margin-bottom: 20px;
         }
 
         .logo {
             font-size: 8em;
             font-family: 'Impact', sans-serif;
-            color: #808080; /* Grigio iniziale */
+            color: #808080;
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+            transition: color 2s ease-in-out, transform 2s ease-in-out;
         }
 
-        /* Login */
-        #loginArea {
-            width: 100%;
-            text-align: center;
-        }
-
+        /* Barra di inserimento password */
         .password-input {
             padding: 12px;
             font-size: 1.5em;
@@ -48,6 +45,7 @@
             text-align: center;
         }
 
+        /* Bottone di login */
         .login-button {
             padding: 12px 25px;
             font-size: 1.5em;
@@ -64,34 +62,101 @@
         .login-button:hover {
             background-color: #c0392b;
         }
+
+        /* Contenuto principale (che appare dopo il login) */
+        #mainContent {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Modifica logo MDL quando password corretta */
+        #mdlLogo {
+            animation: changeColor 2s forwards;
+        }
+
+        @keyframes changeColor {
+            0% { color: #808080; }
+            100% { color: #e74c3c; }
+        }
+
+        /* Link Telegram */
+        .telegram-link {
+            font-size: 1.5em;
+            color: #e74c3c;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .telegram-link:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Logo MDL prima dell'accesso -->
+    <!-- Logo MDL sopra la barra della password -->
     <div class="logo-container">
         <div class="logo" id="mdlLogo">MDL</div>
     </div>
 
-    <!-- Sezione di Login -->
+    <!-- Sezione di login -->
     <div id="loginArea">
         <h2>Inserisci la password per accedere:</h2>
         <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
+    <!-- Contenuto principale visibile dopo il login -->
+    <div id="mainContent">
+        <h1 id="mdlLogo">MDL</h1>
+        <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
+
+        <div class="menu">
+            <select id="productMenu">
+                <option value="">Seleziona un prodotto...</option>
+                <option value="Prodotto 1">Prodotto 1</option>
+                <option value="Prodotto 2">Prodotto 2</option>
+                <option value="Prodotto 3">Prodotto 3</option>
+            </select>
+
+            <select id="serviceMenu">
+                <option value="">Seleziona un servizio...</option>
+                <option value="Servizio 1">Servizio 1</option>
+                <option value="Servizio 2">Servizio 2</option>
+                <option value="Servizio 3">Servizio 3</option>
+            </select>
+
+            <button class="login-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
+        </div>
+
+        <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank">Invia bozza qui</a>
+    </div>
+
     <script>
-        // Funzione di autenticazione (verifica password)
+        // Funzione di autenticazione
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             
             if (password === "MDL") {
-                alert("Accesso riuscito!");
-                // Qui possiamo aggiungere altre funzionalità in seguito.
+                // Mostra il contenuto principale
+                document.getElementById("mainContent").style.display = "block";
+                document.getElementById("loginArea").style.display = "none";
+
+                // Cambia il colore del logo
+                document.getElementById("mdlLogo").style.animation = "changeColor 2s forwards";
             } else {
                 alert("Password errata!");
             }
         }
+
+        // Permette di autenticarsi premendo il tasto "Enter"
+        document.getElementById("passwordInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                authenticate();
+            }
+        });
     </script>
 
 </body>
