@@ -171,6 +171,15 @@
             100% { color: #e74c3c; }
         }
 
+        /* Centra il contenuto */
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -187,7 +196,7 @@
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <div id="mainContent">
+    <div id="mainContent" class="centered-content">
         <div class="logo" style="font-size: 10em;" id="mdlLogo">MDL</div>
 
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
@@ -214,9 +223,9 @@
     </div>
 
     <div class="crypto-logos">
-        <img src="https://via.placeholder.com/40x40?text=BTC" alt="Bitcoin" class="crypto-logo">
-        <img src="https://via.placeholder.com/40x40?text=ETH" alt="Ethereum" class="crypto-logo">
-        <img src="https://via.placeholder.com/40x40?text=USDC" alt="USDC" class="crypto-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Bitcoin_logo_2019.svg" alt="Bitcoin" class="crypto-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/ETH_logo_2014.svg" alt="Ethereum" class="crypto-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Tether_logo.png" alt="USDC" class="crypto-logo">
     </div>
 
     <script>
