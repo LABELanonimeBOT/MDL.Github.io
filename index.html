@@ -93,6 +93,13 @@
             top: 50%;
             transform: translate(-50%, -50%);
             width: 80%;
+            opacity: 0;
+            animation: fadeInContent 2s forwards;
+        }
+
+        @keyframes fadeInContent {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         .menu {
@@ -236,6 +243,7 @@
             if (password === "MDL") {
                 // Mostra il contenuto principale
                 document.getElementById("mainContent").style.display = "block";
+                document.getElementById("mainContent").style.opacity = "1";
                 
                 // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
