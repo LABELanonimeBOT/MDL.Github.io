@@ -16,12 +16,13 @@
             margin: 0;
             text-align: center;
             position: relative;
+            flex-direction: column;
         }
 
         /* Logo MDL iniziale */
         .logo-container {
             position: absolute;
-            top: 15%;
+            top: 10%;
             display: flex;
             justify-content: center;
             width: 100%;
@@ -145,6 +146,16 @@
             background-color: #c0392b;
         }
 
+        /* Animazione del logo */
+        @keyframes colorTransition {
+            0% { color: #808080; } /* Grigio */
+            100% { color: #e74c3c; } /* Rosso */
+        }
+
+        /* Logo MDL che cambia colore in animazione */
+        #mdlLogo {
+            animation: colorTransition 2s ease forwards;
+        }
     </style>
 </head>
 <body>
@@ -160,7 +171,7 @@
     </div>
 
     <div id="mainContent">
-        <div class="logo" id="mdlLogoAfterLogin" style="font-size: 6em;">MDL</div>
+        <div class="logo" id="mdlLogoAfterLogin" style="font-size: 6em; color: #e74c3c;">MDL</div>
 
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
@@ -182,7 +193,8 @@
             <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
         </div>
 
-        <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank">Invia bozza qui</a>
+        <!-- Aggiunta scritta per il canale Telegram -->
+        <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank">Rilascia la bozza al canale Telegram</a>
     </div>
 
     <script>
@@ -200,9 +212,9 @@
                 // Nasconde il logo MDL iniziale
                 document.getElementById("logoContainer").style.display = "none";
                 
-                // Mostra il logo MDL rosso
+                // Mostra il logo MDL rosso con l'animazione
                 var mdlLogo = document.getElementById("mdlLogoAfterLogin");
-                mdlLogo.style.color = "#e74c3c"; // Colore rosso
+                mdlLogo.style.animation = "colorTransition 2s ease forwards";
             } else {
                 alert("Password errata!");
             }
