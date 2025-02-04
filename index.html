@@ -18,7 +18,7 @@
             flex-direction: column;
         }
 
-        /* Logo MDL iniziale */
+        /* Logo MDL nella pagina di login */
         .logo-container {
             display: flex;
             justify-content: center;
@@ -158,16 +158,19 @@
 </head>
 <body>
 
+    <!-- Logo MDL nella pagina di login -->
     <div class="logo-container" id="logoContainer">
         <div class="logo" id="mdlLogo">MDL</div>
     </div>
 
+    <!-- Sezione di Login -->
     <div id="loginArea">
         <h2>Inserisci la password per accedere:</h2>
         <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
+    <!-- Sezione principale dopo il login -->
     <div id="mainContent">
         <div class="logo" id="mdlLogoAfterLogin" style="font-size: 6em; color: #e74c3c;">MDL</div>
 
@@ -228,4 +231,3 @@
 
 </body>
 </html>
- 
