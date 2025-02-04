@@ -98,14 +98,12 @@
             var password = document.getElementById("passwordInput").value;
             
             if (password === "MDL") {
-                // Cambia il colore del logo nella pagina principale
-                document.getElementById("mdlLogo").style.color = "#e74c3c";  // Colore rosso
-
                 // Mostra il contenuto principale
                 document.getElementById("mainContent").style.display = "block";
-
                 // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
+                // Cambia il logo a rosso nella pagina principale
+                document.getElementById("mdlLogoMain").style.color = "#e74c3c";
             } else {
                 alert("Password errata!");
             }
