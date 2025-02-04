@@ -67,8 +67,15 @@
         .main-logo {
             font-size: 6em;
             font-family: 'Impact', sans-serif;
-            color: #e74c3c; /* Rosso */
+            color: #808080; /* Grigio iniziale */
         }
+
+        /* Aggiungi il CSS per il logo che diventa rosso */
+        #mdlLogoMain {
+            color: #808080;
+            transition: color 1s ease-in-out; /* Animazione di cambio colore */
+        }
+
     </style>
 </head>
 <body>
@@ -103,7 +110,7 @@
                 // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
                 // Cambia il logo a rosso nella pagina principale
-                document.getElementById("mdlLogoMain").style.color = "#e74c3c";
+                document.getElementById("mdlLogoMain").style.color = "#e74c3c"; // Colore rosso
             } else {
                 alert("Password errata!");
             }
