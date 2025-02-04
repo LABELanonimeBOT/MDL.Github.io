@@ -202,7 +202,7 @@
 
     <div id="loginArea">
         <h2>Inserisci la password per accedere:</h2>
-        <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password" onkeydown="if(event.key === 'Enter') authenticate()">
+        <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
@@ -254,9 +254,6 @@
             console.log("Password inserita: " + password); 
             
             if (password === "MDL") {
-                // Log di successo
-                console.log("Password corretta!"); 
-                
                 // Mostra il contenuto principale
                 document.getElementById("mainContent").style.display = "block";
                 
@@ -266,8 +263,6 @@
                 // Cambia il colore del logo
                 document.getElementById("mdlLogo").style.animation = "colorChange 3s forwards";
             } else {
-                // Log di errore
-                console.log("Password errata!"); 
                 alert("Password errata!");
             }
         }
