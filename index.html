@@ -26,7 +26,7 @@
         .logo {
             font-size: 8em;
             font-family: 'Impact', sans-serif;
-            color: #808080; /* Grigio */
+            color: #808080; /* Grigio iniziale */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
         }
 
@@ -57,55 +57,6 @@
         .login-button:hover {
             background-color: #c0392b;
         }
-
-        /* Contenuto principale nella pagina dopo login */
-        #mainContent {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .menu {
-            margin-top: 30px;
-        }
-
-        select {
-            padding: 12px;
-            font-size: 1.5em;
-            color: #fff;
-            background-color: #333;
-            border: 2px solid #e74c3c;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            width: 300px;
-        }
-
-        .confirm-button {
-            padding: 12px 25px;
-            font-size: 1.5em;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .confirm-button:hover {
-            background-color: #c0392b;
-        }
-
-        .telegram-link {
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #e74c3c;
-            text-decoration: none;
-        }
-
-        .telegram-link:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -121,49 +72,16 @@
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <!-- Pagina principale dopo il login -->
-    <div id="mainContent">
-        <div class="logo-container">
-            <div class="logo" id="mdlLogoMain">MDL</div>
-        </div>
-
-        <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
-
-        <div class="menu">
-            <select id="productMenu">
-                <option value="">Seleziona un prodotto...</option>
-                <option value="Prodotto 1">Prodotto 1</option>
-                <option value="Prodotto 2">Prodotto 2</option>
-                <option value="Prodotto 3">Prodotto 3</option>
-            </select>
-
-            <select id="serviceMenu">
-                <option value="">Seleziona un servizio...</option>
-                <option value="Servizio 1">Servizio 1</option>
-                <option value="Servizio 2">Servizio 2</option>
-                <option value="Servizio 3">Servizio 3</option>
-            </select>
-
-            <button class="confirm-button">Conferma bozza</button>
-        </div>
-
-        <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank">Invia bozza qui</a>
-    </div>
-
     <script>
         // Funzione di autenticazione
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             
             if (password === "MDL") {
-                // Mostra il contenuto principale
-                document.getElementById("mainContent").style.display = "block";
-                
-                // Nasconde l'area di login
-                document.getElementById("loginArea").style.display = "none";
-                
-                // Cambia il colore del logo MDL a rosso
-                document.getElementById("mdlLogoMain").style.color = "#e74c3c";  // Colore rosso
+                // Cambia il colore del logo a rosso
+                document.getElementById("mdlLogo").style.color = "#e74c3c";  // Colore rosso
+                // Nasconde l'area di login (se necessario)
+                document.getElementById("loginArea").innerHTML = "<h2>Accesso riuscito! Benvenuto.</h2>";
             } else {
                 alert("Password errata!");
             }
@@ -179,4 +97,3 @@
 
 </body>
 </html>
- 
