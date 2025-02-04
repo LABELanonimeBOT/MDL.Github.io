@@ -62,18 +62,42 @@
         #mainContent {
             display: none; /* Non visibile fino a quando non avviene l'accesso */
             text-align: center;
+            width: 80%;
         }
 
         .main-logo {
             font-size: 6em;
             font-family: 'Impact', sans-serif;
             color: #808080; /* Grigio iniziale */
+            transition: color 1s ease-in-out; /* Animazione di cambio colore */
         }
 
-        /* Aggiungi il CSS per il logo che diventa rosso */
-        #mdlLogoMain {
-            color: #808080;
-            transition: color 1s ease-in-out; /* Animazione di cambio colore */
+        /* Aggiungi il CSS per la barra di selezione */
+        select {
+            padding: 12px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        .confirm-button {
+            padding: 12px 25px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .confirm-button:hover {
+            background-color: #c0392b;
         }
 
     </style>
@@ -96,7 +120,29 @@
         <div class="main-logo" id="mdlLogoMain">MDL</div>
         <h2>Benvenuto nella pagina principale!</h2>
         <p>Ora puoi selezionare il prodotto e completare l'ordine.</p>
-        <!-- Aggiungi ulteriori contenuti qui, come menu di selezione prodotto o altro -->
+
+        <!-- Barra di selezione per il prodotto -->
+        <select id="productMenu">
+            <option value="">Seleziona un prodotto...</option>
+            <option value="Prodotto 1">Prodotto 1</option>
+            <option value="Prodotto 2">Prodotto 2</option>
+            <option value="Prodotto 3">Prodotto 3</option>
+        </select>
+
+        <!-- Barra di selezione per il servizio -->
+        <select id="serviceMenu">
+            <option value="">Seleziona un servizio...</option>
+            <option value="Servizio 1">Servizio 1</option>
+            <option value="Servizio 2">Servizio 2</option>
+            <option value="Servizio 3">Servizio 3</option>
+        </select>
+
+        <!-- Bottone di conferma -->
+        <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
+
+        <p style="margin-top: 20px;">
+            <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank" style="font-size: 1.5em; color: #e74c3c; text-decoration: none;">Invia bozza qui</a>
+        </p>
     </div>
 
     <script>
