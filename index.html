@@ -19,6 +19,7 @@
             overflow: hidden;
         }
 
+        /* Logo MDL */
         .logo-container {
             position: absolute;
             top: 15%;
@@ -30,7 +31,7 @@
         .logo {
             font-size: 8em;
             font-family: 'Impact', sans-serif;
-            color: #808080; /* Colore grigio iniziale */
+            color: #808080;
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
             opacity: 0;
             animation: fadeIn 4s forwards, moveLetter 4s ease-in-out infinite alternate;
@@ -50,6 +51,12 @@
             100% { transform: translateY(-20px); }
         }
 
+        @keyframes colorChange {
+            0% { color: #808080; }
+            100% { color: #e74c3c; }
+        }
+
+        /* Login */
         #loginArea {
             position: absolute;
             top: 30%;
@@ -92,6 +99,7 @@
             background-color: #c0392b;
         }
 
+        /* Contenuto principale centrato */
         #mainContent {
             display: none;
             text-align: center;
@@ -103,7 +111,9 @@
 
         .menu {
             display: flex;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             margin-top: 30px;
             width: 100%;
         }
@@ -115,8 +125,8 @@
             background-color: #333;
             border: 2px solid #e74c3c;
             border-radius: 5px;
-            margin-right: 20px;
-            width: 250px;
+            margin-bottom: 20px;
+            width: 300px;
         }
 
         .confirm-button {
@@ -141,11 +151,26 @@
             margin-top: 20px;
             color: #e74c3c;
             text-decoration: none;
-            display: inline-block;
         }
 
         .telegram-link:hover {
             text-decoration: underline;
+        }
+
+        /* Logo criptovalute in alto a destra */
+        .crypto-logos {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .crypto-logo {
+            width: 30px;
+            height: 30px;
+            filter: grayscale(100%);
         }
 
         .background-image {
@@ -158,26 +183,6 @@
             background-position: center;
             background-size: cover;
             z-index: -1;
-        }
-
-        /* Aggiunta dell'animazione per cambiare il colore del logo */
-        @keyframes colorChange {
-            0% { color: #808080; }
-            100% { color: #e74c3c; }
-        }
-
-        /* Posizionamento dei loghi in alto a destra */
-        .crypto-logos {
-            position: absolute;
-            top: 10%;
-            right: 10%;
-            display: flex;
-            align-items: center;
-        }
-
-        .crypto-logos img {
-            width: 30px;
-            margin-left: 10px;
         }
     </style>
 </head>
@@ -224,9 +229,9 @@
     </div>
 
     <div class="crypto-logos">
-        <img src="https://via.placeholder.com/40x40?text=BTC" alt="BTC">
-        <img src="https://via.placeholder.com/40x40?text=ETH" alt="ETH">
-        <img src="https://via.placeholder.com/40x40?text=USD" alt="USD">
+        <img src="https://via.placeholder.com/40x40?text=BTC" alt="Bitcoin" class="crypto-logo">
+        <img src="https://via.placeholder.com/40x40?text=ETH" alt="Ethereum" class="crypto-logo">
+        <img src="https://via.placeholder.com/40x40?text=USDC" alt="USDC" class="crypto-logo">
     </div>
 
     <script>
