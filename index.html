@@ -28,7 +28,7 @@
             font-family: 'Impact', sans-serif;
             color: #808080; /* Grigio */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
-            transition: color 2s ease-in-out, transform 2s ease-in-out;
+            transition: color 1s ease; /* Transizione fluida per il cambio di colore */
         }
 
         /* Barra di inserimento password */
@@ -44,7 +44,6 @@
             text-align: center;
         }
 
-        /* Bottone di login */
         .login-button {
             padding: 12px 25px;
             font-size: 1.5em;
@@ -54,75 +53,80 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            text-transform: uppercase;
-            font-weight: bold;
         }
 
         .login-button:hover {
             background-color: #c0392b;
         }
 
-        /* Contenuto principale (visibile dopo il login) */
+        /* Contenuto principale nella pagina dopo login */
         #mainContent {
             display: none;
             text-align: center;
+        }
+
+        .menu {
+            margin-top: 30px;
+        }
+
+        select {
+            padding: 12px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        .confirm-button {
+            padding: 12px 25px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
             margin-top: 20px;
         }
 
-        /* Modifica logo MDL quando password corretta */
-        #mdlLogo {
-            animation: changeColor 2s forwards, bounceLogo 1s infinite;
+        .confirm-button:hover {
+            background-color: #c0392b;
         }
 
-        @keyframes changeColor {
-            0% { color: #808080; }
-            100% { color: #e74c3c; } /* Passa da grigio a rosso */
-        }
-
-        @keyframes bounceLogo {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Link Telegram */
         .telegram-link {
             font-size: 1.5em;
+            margin-top: 20px;
             color: #e74c3c;
             text-decoration: none;
-            margin-top: 20px;
         }
 
         .telegram-link:hover {
             text-decoration: underline;
         }
-
-        /* Centra gli elementi della pagina */
-        .centered {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- Logo MDL sopra la barra della password -->
-    <div class="logo-container" id="logoArea">
-        <div class="logo" id="mdlLogo">MDL</div>
-    </div>
-
-    <!-- Sezione di login -->
-    <div id="loginArea" class="centered">
+    <!-- Pagina di Login -->
+    <div id="loginArea">
+        <div class="logo-container">
+            <div class="logo">MDL</div>
+        </div>
+        
         <h2>Inserisci la password per accedere:</h2>
         <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <!-- Contenuto principale visibile dopo il login -->
-    <div id="mainContent" class="centered">
-        <h1 id="mdlLogo">MDL</h1>
+    <!-- Pagina principale dopo il login -->
+    <div id="mainContent">
+        <div class="logo-container">
+            <div class="logo" id="mdlLogo">MDL</div>
+        </div>
+
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
         <div class="menu">
@@ -140,7 +144,7 @@
                 <option value="Servizio 3">Servizio 3</option>
             </select>
 
-            <button class="login-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
+            <button class="confirm-button">Conferma bozza</button>
         </div>
 
         <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank">Invia bozza qui</a>
@@ -154,10 +158,12 @@
             if (password === "MDL") {
                 // Mostra il contenuto principale
                 document.getElementById("mainContent").style.display = "block";
+                
+                // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
-
-                // Cambia il colore del logo e animazione di rimbalzo
-                document.getElementById("mdlLogo").style.animation = "changeColor 2s forwards, bounceLogo 1s infinite";
+                
+                // Cambia il colore del logo a rosso
+                document.getElementById("mdlLogo").style.color = "#e74c3c";
             } else {
                 alert("Password errata!");
             }
@@ -166,7 +172,7 @@
         // Permette di autenticarsi premendo il tasto "Enter"
         document.getElementById("passwordInput").addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
-                authenticate();
+                authenticate(); // Esegui la funzione di autenticazione quando si preme Enter
             }
         });
     </script>
