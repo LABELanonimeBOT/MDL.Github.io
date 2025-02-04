@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benvenuto su MDL</title>
+    <title>Accesso MDL</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -16,7 +16,6 @@
             margin: 0;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         /* Logo MDL */
@@ -34,26 +33,12 @@
             color: #808080;
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
             opacity: 0;
-            animation: fadeIn 4s forwards, moveLetter 4s ease-in-out infinite alternate;
+            animation: fadeIn 4s forwards;
         }
-
-        .logo:nth-child(1) { animation-delay: 0s; }
-        .logo:nth-child(2) { animation-delay: 0.4s; }
-        .logo:nth-child(3) { animation-delay: 0.8s; }
 
         @keyframes fadeIn {
             0% { opacity: 0; transform: scale(0.5); }
             100% { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes moveLetter {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-20px); }
-        }
-
-        @keyframes colorChange {
-            0% { color: #808080; }
-            100% { color: #e74c3c; }
         }
 
         /* Login */
@@ -173,22 +158,22 @@
             filter: grayscale(100%);
         }
 
-        .background-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://via.placeholder.com/1920x1080.png');
-            background-position: center;
-            background-size: cover;
-            z-index: -1;
+        /* Illumina il logo MDL quando la password è corretta */
+        #mdlLogo {
+            color: #808080;
+            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+            font-size: 6em;
+            animation: changeColor 3s forwards;
         }
+
+        @keyframes changeColor {
+            0% { color: #808080; }
+            100% { color: #e74c3c; }
+        }
+
     </style>
 </head>
 <body>
-
-    <div class="background-image"></div>
 
     <div class="logo-container">
         <div class="logo">M</div>
@@ -247,7 +232,7 @@
                 document.getElementById("loginArea").style.display = "none";
                 
                 // Cambia il colore del logo MDL
-                document.getElementById("mdlLogo").style.animation = "colorChange 3s forwards";
+                document.getElementById("mdlLogo").style.animation = "changeColor 3s forwards";
             } else {
                 alert("Password errata!");
             }
