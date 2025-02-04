@@ -84,86 +84,6 @@
             background-color: #c0392b;
         }
 
-        /* Contenuto principale centrato */
-        #mainContent {
-            display: none;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            opacity: 0;
-            animation: fadeInContent 2s forwards;
-        }
-
-        @keyframes fadeInContent {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        .menu {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            width: 100%;
-        }
-
-        select {
-            padding: 12px;
-            font-size: 1.5em;
-            color: #fff;
-            background-color: #333;
-            border: 2px solid #e74c3c;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            width: 300px;
-        }
-
-        .confirm-button {
-            padding: 12px 25px;
-            font-size: 1.5em;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-
-        .confirm-button:hover {
-            background-color: #c0392b;
-        }
-
-        .telegram-link {
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #e74c3c;
-            text-decoration: none;
-        }
-
-        .telegram-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Logo criptovalute in alto a destra */
-        .crypto-logos {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .crypto-logo {
-            width: 40px;
-            height: 40px;
-        }
-
         /* Illumina il logo MDL quando la password è corretta */
         #mdlLogo {
             color: #808080;
@@ -171,16 +91,6 @@
             font-size: 6em;
             transition: color 2s ease;
         }
-
-        /* Centra il contenuto */
-        .centered-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
     </style>
 </head>
 <body>
@@ -197,36 +107,8 @@
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <div id="mainContent" class="centered-content">
-        <div class="logo" style="font-size: 10em;" id="mdlLogo">MDL</div>
-
-        <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
-
-        <div class="menu">
-            <select id="productMenu">
-                <option value="">Seleziona un prodotto...</option>
-                <option value="Prodotto 1">Prodotto 1</option>
-                <option value="Prodotto 2">Prodotto 2</option>
-                <option value="Prodotto 3">Prodotto 3</option>
-            </select>
-
-            <select id="serviceMenu">
-                <option value="">Seleziona un servizio...</option>
-                <option value="Servizio 1">Servizio 1</option>
-                <option value="Servizio 2">Servizio 2</option>
-                <option value="Servizio 3">Servizio 3</option>
-            </select>
-
-            <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
-        </div>
-
-        <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank">Invia bozza qui</a>
-    </div>
-
-    <div class="crypto-logos">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Bitcoin_logo_2019.svg" alt="Bitcoin" class="crypto-logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/ETH_logo_2014.svg" alt="Ethereum" class="crypto-logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Tether_logo.png" alt="USDC" class="crypto-logo">
+    <div id="mainContent" style="display: none;">
+        <div class="logo" id="mdlLogo">MDL</div>
     </div>
 
     <script>
@@ -237,7 +119,6 @@
             if (password === "MDL") {
                 // Mostra il contenuto principale
                 document.getElementById("mainContent").style.display = "block";
-                document.getElementById("mainContent").style.opacity = "1";
                 
                 // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
@@ -260,4 +141,3 @@
 
 </body>
 </html>
- 
