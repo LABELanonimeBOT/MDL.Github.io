@@ -18,7 +18,7 @@
             position: relative;
         }
 
-        /* Logo MDL */
+        /* Logo MDL (grigio inizialmente) */
         .logo-container {
             position: absolute;
             top: 15%;
@@ -166,9 +166,9 @@
             filter: grayscale(100%);
         }
 
-        /* Animazione per cambiare il colore del logo */
+        /* Logo MDL illuminato di rosso dopo l'accesso */
         #mdlLogo {
-            color: #808080; /* Colore iniziale grigio */
+            color: #808080; /* Colore grigio iniziale */
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
             font-size: 6em;
             transition: color 2s ease; /* Cambia colore lentamente */
@@ -178,7 +178,7 @@
 </head>
 <body>
 
-    <div class="logo-container">
+    <div class="logo-container" id="logoContainer">
         <div class="logo" id="mdlLogo">MDL</div>
     </div>
 
@@ -189,7 +189,7 @@
     </div>
 
     <div id="mainContent">
-        <div class="logo" id="mdlLogo">MDL</div>
+        <div class="logo" id="mdlLogoAfterLogin">MDL</div>
 
         <p style="font-weight: bold; font-size: 2em;">Ora puoi scegliere il prodotto e completare l'ordine.</p>
 
@@ -232,8 +232,11 @@
                 // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
                 
-                // Cambia il colore del logo MDL
-                var mdlLogo = document.getElementById("mdlLogo");
+                // Nasconde il logo MDL grigio
+                document.getElementById("logoContainer").style.display = "none";
+                
+                // Cambia il colore del logo MDL in rosso
+                var mdlLogo = document.getElementById("mdlLogoAfterLogin");
                 mdlLogo.style.color = "#e74c3c"; // Cambia il colore in rosso
             } else {
                 alert("Password errata!");
