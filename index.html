@@ -16,9 +16,10 @@
             margin: 0;
             text-align: center;
             flex-direction: column;
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.9) 25%, rgba(30, 30, 30, 0.9) 25%, rgba(30, 30, 30, 0.9) 50%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 0, 0, 0.9) 75%, rgba(30, 30, 30, 0.9) 75%, rgba(30, 30, 30, 0.9));
+            background-size: 40px 40px;
         }
 
-        /* Logo MDL nella pagina di login */
         .logo-container {
             margin-bottom: 20px;
         }
@@ -27,10 +28,9 @@
             font-size: 8em;
             font-family: 'Impact', sans-serif;
             color: #808080; /* Grigio iniziale */
-            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.5); /* Effetto luce accesa */
         }
 
-        /* Barra di inserimento password */
         .password-input {
             padding: 12px;
             font-size: 1.5em;
@@ -58,22 +58,20 @@
             background-color: #c0392b;
         }
 
-        /* Contenuto della pagina principale */
         #mainContent {
-            display: none; /* Non visibile fino a quando non avviene l'accesso */
+            display: none; 
             text-align: center;
             width: 80%;
         }
 
         .main-logo {
-            font-size: 12em; /* Logo MDL più grande */
+            font-size: 12em;
             font-family: 'Impact', sans-serif;
-            color: #808080; /* Grigio iniziale */
-            text-shadow: 0px 0px 15px rgba(255, 0, 0, 1), 0px 0px 30px rgba(255, 0, 0, 0.8); /* Effetto realistico */
-            transition: color 1s ease-in-out; /* Animazione di cambio colore */
+            color: #808080;
+            text-shadow: 0px 0px 15px rgba(255, 0, 0, 1), 0px 0px 30px rgba(255, 0, 0, 0.8); 
+            transition: color 1s ease-in-out;
         }
 
-        /* Aggiungi il CSS per la barra di selezione */
         select {
             padding: 12px;
             font-size: 1.5em;
@@ -101,13 +99,12 @@
             background-color: #c0392b;
         }
 
-        /* Nuove aggiunte per la scritta "24/7 OPEN" in movimento */
         .main-header {
             font-weight: bold;
             font-size: 2.5em;
             color: red;
             margin-bottom: 10px;
-            animation: move 3s infinite alternate; /* Animazione in movimento */
+            animation: move 3s infinite alternate;
         }
 
         @keyframes move {
@@ -119,7 +116,6 @@
             }
         }
 
-        /* Posizionamento loghi Bitcoin ed Ethereum sotto "Invia bozza qui" */
         .logos {
             display: flex;
             justify-content: center;
@@ -128,10 +124,32 @@
         }
 
         .logos img {
-            width: 50px; /* Imposta una larghezza per i loghi */
-            height: 50px; /* Imposta un'altezza per i loghi */
+            width: 50px;
+            height: 50px;
         }
 
+        .telegram-link {
+            font-size: 1.5em;
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        /* Nuovo tasto "Invia bozza" */
+        .send-button {
+            padding: 12px 25px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .send-button:hover {
+            background-color: #c0392b;
+        }
     </style>
 </head>
 <body>
@@ -147,16 +165,14 @@
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <!-- Pagina principale (visibile dopo il login) -->
+    <!-- Pagina principale -->
     <div id="mainContent">
         <div class="main-logo" id="mdlLogoMain">MDL</div>
         
-        <!-- Scritta "24/7 OPEN" in movimento -->
         <div class="main-header">24/7 OPEN</div>
 
         <p>Ora puoi selezionare il prodotto e completare l'ordine.</p>
 
-        <!-- Barra di selezione per il prodotto -->
         <select id="productMenu">
             <option value="">Seleziona un prodotto...</option>
             <option value="Prodotto 1">Prodotto 1</option>
@@ -164,7 +180,6 @@
             <option value="Prodotto 3">Prodotto 3</option>
         </select>
 
-        <!-- Barra di selezione per il servizio -->
         <select id="serviceMenu">
             <option value="">Seleziona un servizio...</option>
             <option value="Servizio 1">Servizio 1</option>
@@ -172,14 +187,11 @@
             <option value="Servizio 3">Servizio 3</option>
         </select>
 
-        <!-- Bottone di conferma -->
         <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
 
-        <p style="margin-top: 20px;">
-            <a href="https://t.me/MercatoDellaDxxxxLibero" class="telegram-link" target="_blank" style="font-size: 1.5em; color: #e74c3c; text-decoration: none;">Invia bozza qui</a>
-        </p>
+        <!-- Nuovo tasto "Invia bozza qui" -->
+        <button class="send-button" onclick="window.location.href='https://t.me/MercatoDellaDxxxxLibero'">Invia bozza qui</button>
 
-        <!-- Loghi Bitcoin ed Ethereum sotto "Invia bozza qui" -->
         <div class="logos">
             <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin Logo">
             <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum Logo">
@@ -187,30 +199,24 @@
     </div>
 
     <script>
-        // Funzione di autenticazione
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
             
             if (password === "MDL") {
-                // Mostra il contenuto principale
                 document.getElementById("mainContent").style.display = "block";
-                // Nasconde l'area di login
                 document.getElementById("loginArea").style.display = "none";
-                // Cambia il logo a rosso nella pagina principale
-                document.getElementById("mdlLogoMain").style.color = "#e74c3c"; // Colore rosso
+                document.getElementById("mdlLogoMain").style.color = "#e74c3c"; 
             } else {
                 alert("Password errata!");
             }
         }
 
-        // Permette di autenticarsi premendo il tasto "Enter"
         document.getElementById("passwordInput").addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
-                authenticate(); // Esegui la funzione di autenticazione quando si preme Enter
+                authenticate();
             }
         });
     </script>
 
 </body>
 </html>
- 
