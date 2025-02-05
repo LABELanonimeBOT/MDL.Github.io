@@ -100,6 +100,26 @@
             background-color: #c0392b;
         }
 
+        /* Nuove aggiunte per la scritta "24/7 OPEN" e loghi */
+        .main-header {
+            font-weight: bold;
+            font-size: 2.5em;
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .logo img {
+            width: 50px; /* Imposta una larghezza per i loghi */
+            height: 50px; /* Imposta un'altezza per i loghi */
+        }
+
     </style>
 </head>
 <body>
@@ -118,7 +138,16 @@
     <!-- Pagina principale (visibile dopo il login) -->
     <div id="mainContent">
         <div class="main-logo" id="mdlLogoMain">MDL</div>
-        <h2>Benvenuto nella pagina principale!</h2>
+        
+        <!-- Nuove modifiche -->
+        <div class="main-header">24/7 OPEN</div>
+
+        <div class="logos">
+            <!-- Aggiungi i loghi di Bitcoin ed Ethereum -->
+            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin Logo">
+            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum Logo">
+        </div>
+
         <p>Ora puoi selezionare il prodotto e completare l'ordine.</p>
 
         <!-- Barra di selezione per il prodotto -->
@@ -172,4 +201,3 @@
 
 </body>
 </html>
- 
