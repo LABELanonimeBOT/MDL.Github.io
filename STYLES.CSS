@@ -10,12 +10,12 @@ body {
     position: relative;
     overflow: hidden;
     background-color: #141414;
-    background-image: url('https://www.transparenttextures.com/patterns/lines.png'); /* Griglia leggera */
-    background-size: 100px 100px;  /* Imposta la dimensione della griglia */
+    background-image: url('https://www.transparenttextures.com/patterns/triangles.png'); /* Trama minimalista */
+    background-size: 100px 100px; /* Imposta la dimensione della trama */
     background-repeat: repeat; /* Ripeti il pattern */
 }
 
-/* Resto del codice non cambiato */
+/* Logo MDL con effetto di luce */
 .logo-container {
     position: absolute;
     top: 15%;
@@ -25,17 +25,13 @@ body {
 }
 
 .logo {
-    font-size: 8em;
+    font-size: 10em; /* Doppio rispetto a prima */
     font-family: 'Impact', sans-serif;
-    color: #333;
-    text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 0, 0, 0.8); /* Effetto luce intensa */
     opacity: 0;
     animation: fadeIn 4s forwards, moveLetter 4s ease-in-out infinite alternate;
 }
-
-.logo:nth-child(1) { animation-delay: 0s; }
-.logo:nth-child(2) { animation-delay: 0.4s; }
-.logo:nth-child(3) { animation-delay: 0.8s; }
 
 @keyframes fadeIn {
     0% { opacity: 0; transform: scale(0.5); }
@@ -49,7 +45,7 @@ body {
 
 #loginArea {
     position: absolute;
-    top: 30%;
+    top: 40%;
     width: 100%;
     opacity: 0;
     animation: fadeInLogin 2s forwards;
@@ -133,6 +129,25 @@ select {
     background-color: #c0392b;
 }
 
+/* Bottone "Invia bozza qui" */
+.telegram-link {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 12px 25px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.telegram-link:hover {
+    background-color: #c0392b;
+}
+
+/* Banner crypto che scorre */
 .crypto-banner {
     position: absolute;
     top: 10%;
@@ -161,27 +176,4 @@ select {
     vertical-align: middle;
     margin-left: 10px;
     filter: grayscale(100%);
-}
-
-.telegram-link {
-    font-size: 1.5em;
-    margin-top: 20px;
-    color: #e74c3c;
-    text-decoration: none;
-}
-
-.telegram-link:hover {
-    text-decoration: underline;
-}
-
-.background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://via.placeholder.com/1920x1080.png');
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
 }
