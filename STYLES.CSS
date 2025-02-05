@@ -1,6 +1,5 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #141414;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -10,10 +9,13 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-    background-image: url('https://www.transparenttextures.com/patterns/hello-world.png'); /* Aggiungi un pattern minimale */
-    background-repeat: repeat; /* Ripeti il pattern per tutto lo sfondo */
+    background-color: #141414;
+    background-image: url('https://www.transparenttextures.com/patterns/lines.png'); /* Griglia leggera */
+    background-size: 100px 100px;  /* Imposta la dimensione della griglia */
+    background-repeat: repeat; /* Ripeti il pattern */
 }
 
+/* Resto del codice non cambiato */
 .logo-container {
     position: absolute;
     top: 15%;
@@ -183,4 +185,3 @@ select {
     background-size: cover;
     z-index: -1;
 }
- 
