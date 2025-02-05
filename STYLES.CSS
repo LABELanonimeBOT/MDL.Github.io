@@ -10,6 +10,8 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
+    background-image: url('https://www.transparenttextures.com/patterns/hello-world.png'); /* Aggiungi un pattern minimale */
+    background-repeat: repeat; /* Ripeti il pattern per tutto lo sfondo */
 }
 
 .logo-container {
