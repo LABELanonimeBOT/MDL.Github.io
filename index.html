@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accesso MDL</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Riferimento al file CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Collega il file CSS -->
 </head>
 <body>
-    <!-- Pagina di Login -->
+
+    <!-- Login Area -->
     <div id="loginArea">
         <div class="logo-container">
             <div class="logo" id="mdlLogo">MDL</div>
         </div>
-        
         <h2>Inserisci la password per accedere:</h2>
-        <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
+        <input type="password" id="passwordInput" class="password-input" placeholder="Inserisci password">
         <button class="login-button" onclick="authenticate()">Accedi</button>
     </div>
 
-    <!-- Pagina principale -->
+    <!-- Main Content Area -->
     <div id="mainContent">
         <div class="main-logo" id="mdlLogoMain">MDL</div>
         <div class="main-header">24/7 OPEN</div>
         <p>Ora puoi selezionare il prodotto e completare l'ordine.</p>
 
+        <!-- Menu -->
         <div class="menu">
             <select id="productMenu">
                 <option value="">Seleziona un prodotto...</option>
@@ -42,12 +43,14 @@
         <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
         <button class="telegram-link" onclick="window.location.href='https://t.me/MercatoDellaDxxxxLibero'">Invia bozza qui</button>
 
+        <!-- Crypto Logos -->
         <div class="logos">
             <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin Logo" class="crypto-logo">
             <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum Logo" class="crypto-logo">
         </div>
     </div>
 
+    <!-- Script -->
     <script>
         function authenticate() {
             var password = document.getElementById("passwordInput").value;
@@ -55,17 +58,19 @@
             if (password === "MDL") {
                 document.getElementById("mainContent").style.display = "block";
                 document.getElementById("loginArea").style.display = "none";
-                document.getElementById("mdlLogoMain").style.color = "#e74c3c"; 
+                document.getElementById("mdlLogoMain").style.color = "#e74c3c";
             } else {
                 alert("Password errata!");
             }
         }
 
+        // Event listener per il tasto Enter
         document.getElementById("passwordInput").addEventListener("keydown", function(event) {
             if (event.key === "Enter") {
                 authenticate();
             }
         });
     </script>
+
 </body>
 </html>
