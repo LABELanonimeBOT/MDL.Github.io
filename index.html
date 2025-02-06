@@ -8,7 +8,6 @@
         /* Impostazioni generali e sfondo dinamico */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #141414;
             color: #fff;
             display: flex;
             justify-content: center;
@@ -59,6 +58,15 @@
         @keyframes glow {
             0% { text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00, 0 0 30px #00FF00; }
             100% { text-shadow: 0 0 20px #00FF00, 0 0 40px #00FF00, 0 0 50px #00FF00; }
+        }
+
+        /* Testo in maiuscolo rosso scuro */
+        .order-message {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #8B0000; /* Rosso scuro */
+            text-transform: uppercase; /* Maiuscolo */
+            margin-bottom: 30px;
         }
 
         /* Input e pulsanti */
@@ -163,7 +171,8 @@
         
         <div class="main-header">24/7 OPEN</div>
 
-        <p>Ora puoi selezionare il prodotto e completare l'ordine.</p>
+        <!-- Messaggio in rosso scuro e maiuscolo -->
+        <p class="order-message">Ora puoi selezionare il prodotto e completare l'ordine.</p>
 
         <select id="productMenu">
             <option value="">Seleziona un prodotto...</option>
