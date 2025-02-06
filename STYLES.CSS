@@ -10,9 +10,9 @@ body {
     position: relative;
     overflow: hidden;
     background-color: #141414;
-    background-image: url('https://www.transparenttextures.com/patterns/triangles.png'); /* Trama minimalista */
-    background-size: 100px 100px; /* Imposta la dimensione della trama */
-    background-repeat: repeat; /* Ripeti il pattern */
+    background-image: radial-gradient(circle, rgba(255, 0, 0, 0.8), rgba(0, 0, 255, 0.8)); /* Gradiente circolare dinamico */
+    background-size: cover;
+    animation: gradientAnimation 5s ease-in-out infinite; /* Animazione di transizione tra i colori */
 }
 
 /* Logo MDL con effetto di luce */
@@ -25,10 +25,10 @@ body {
 }
 
 .logo {
-    font-size: 10em; /* Doppio rispetto a prima */
+    font-size: 10em; /* Logo più grande */
     font-family: 'Impact', sans-serif;
     color: #fff;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 0, 0, 0.8); /* Effetto luce intensa */
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 0, 0, 0.8); /* Effetto luce intensa */
     opacity: 0;
     animation: fadeIn 4s forwards, moveLetter 4s ease-in-out infinite alternate;
 }
@@ -41,6 +41,12 @@ body {
 @keyframes moveLetter {
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
+}
+
+@keyframes gradientAnimation {
+    0% { background-image: radial-gradient(circle, rgba(255, 0, 0, 0.8), rgba(0, 0, 255, 0.8)); }
+    50% { background-image: radial-gradient(circle, rgba(0, 255, 0, 0.8), rgba(0, 255, 255, 0.8)); }
+    100% { background-image: radial-gradient(circle, rgba(255, 0, 0, 0.8), rgba(0, 0, 255, 0.8)); }
 }
 
 #loginArea {
