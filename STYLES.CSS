@@ -1,4 +1,3 @@
-/* Corpo e Layout */
 body {
     font-family: 'Arial', sans-serif;
     color: #fff;
@@ -9,20 +8,21 @@ body {
     margin: 0;
     text-align: center;
     position: relative;
+    overflow: hidden;
     background-color: #141414;
-    background-image: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(0, 0, 255, 0.7));
-    background-size: 200% 200%;
-    animation: gradientAnimation 6s ease infinite;
+    background-image: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(0, 0, 255, 0.7)); /* Semplice sfondo con gradiente */
+    background-size: 200% 200%; /* Grandezza del gradiente */
+    animation: gradientAnimation 6s ease infinite; /* Animazione per cambiare il gradiente */
 }
 
-/* Animazione per il gradiente di sfondo */
+/* Animazione per sfondo gradiente che cambia colore */
 @keyframes gradientAnimation {
     0% { background-image: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(0, 0, 255, 0.7)); }
     50% { background-image: radial-gradient(circle, rgba(255, 255, 0, 0.7), rgba(0, 255, 255, 0.7)); }
     100% { background-image: radial-gradient(circle, rgba(0, 255, 0, 0.7), rgba(255, 0, 255, 0.7)); }
 }
 
-/* Logo */
+/* Logo MDL con effetto di luce */
 .logo-container {
     position: absolute;
     top: 15%;
@@ -32,15 +32,14 @@ body {
 }
 
 .logo {
-    font-size: 10em;
+    font-size: 10em; /* Logo più grande */
     font-family: 'Impact', sans-serif;
     color: #fff;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 0, 0, 0.8);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 0, 0, 0.8); /* Effetto luce intensa */
     opacity: 0;
     animation: fadeIn 4s forwards, moveLetter 4s ease-in-out infinite alternate;
 }
 
-/* Animazioni del logo */
 @keyframes fadeIn {
     0% { opacity: 0; transform: scale(0.5); }
     100% { opacity: 1; transform: scale(1); }
@@ -51,7 +50,6 @@ body {
     100% { transform: translateY(-20px); }
 }
 
-/* Login */
 #loginArea {
     position: absolute;
     top: 40%;
@@ -94,7 +92,6 @@ body {
     background-color: #c0392b;
 }
 
-/* Main Content */
 #mainContent {
     display: none;
     text-align: center;
@@ -104,20 +101,6 @@ body {
     width: 80%;
 }
 
-.main-header {
-    font-weight: bold;
-    font-size: 2.5em;
-    color: red;
-    margin-bottom: 10px;
-    animation: move 3s infinite alternate;
-}
-
-@keyframes move {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-}
-
-/* Menu Selezione */
 .menu {
     display: flex;
     justify-content: flex-start;
@@ -153,7 +136,7 @@ select {
     background-color: #c0392b;
 }
 
-/* Link Telegram */
+/* Bottone "Invia bozza qui" */
 .telegram-link {
     font-size: 1.5em;
     margin-top: 20px;
@@ -171,11 +154,33 @@ select {
     background-color: #c0392b;
 }
 
-/* Crypto Logos */
-.crypto-logo {
-    width: 50px;
-    height: 50px;
-    filter: grayscale(100%);
-    margin-right: 10px;
+/* Banner crypto che scorre */
+.crypto-banner {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5em;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #888;
+    opacity: 0.8;
+    white-space: nowrap;
+    animation: cryptoMove 60s infinite linear;
 }
 
+@keyframes cryptoMove {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.crypto-banner span {
+    margin-right: 50px;
+}
+
+.crypto-logo {
+    width: 40px;
+    vertical-align: middle;
+    margin-left: 10px;
+    filter: grayscale(100%);
+}
