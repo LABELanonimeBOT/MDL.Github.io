@@ -1,180 +1,223 @@
-/* Corpo e Layout */
-body {
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    text-align: center;
-    position: relative;
-    background-color: #141414;
-    background-image: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(0, 0, 255, 0.7));
-    background-size: 200% 200%;
-    animation: gradientAnimation 6s ease infinite;
-}
+Hai detto:
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso MDL</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #141414;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+            /* Nuovo sfondo con trama sottile */
+            background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.85) 25%, rgba(50, 50, 50, 0.85) 25%, rgba(50, 50, 50, 0.85) 50%, rgba(0, 0, 0, 0.85) 50%, rgba(0, 0, 0, 0.85) 75%, rgba(50, 50, 50, 0.85) 75%, rgba(50, 50, 50, 0.85));
+            background-size: 30px 30px;
+        }
 
-/* Animazione per il gradiente di sfondo */
-@keyframes gradientAnimation {
-    0% { background-image: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(0, 0, 255, 0.7)); }
-    50% { background-image: radial-gradient(circle, rgba(255, 255, 0, 0.7), rgba(0, 255, 255, 0.7)); }
-    100% { background-image: radial-gradient(circle, rgba(0, 255, 0, 0.7), rgba(255, 0, 255, 0.7)); }
-}
+        .logo-container {
+            margin-bottom: 20px;
+        }
 
-/* Logo */
-.logo-container {
-    position: absolute;
-    top: 15%;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+        .logo {
+            font-size: 8em;
+            font-family: 'Impact', sans-serif;
+            color: #808080;
+            text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.5); /* Effetto luce accesa */
+        }
 
-.logo {
-    font-size: 10em;
-    font-family: 'Impact', sans-serif;
-    color: #fff;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 0, 0, 0.8);
-    opacity: 0;
-    animation: fadeIn 4s forwards, moveLetter 4s ease-in-out infinite alternate;
-}
+        .password-input {
+            padding: 12px;
+            font-size: 1.5em;
+            color: #333;
+            border: 2px solid #e74c3c;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 300px;
+            text-align: center;
+        }
 
-/* Animazioni del logo */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: scale(0.5); }
-    100% { opacity: 1; transform: scale(1); }
-}
+        .login-button {
+            padding: 12px 25px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-@keyframes moveLetter {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-20px); }
-}
+        .login-button:hover {
+            background-color: #c0392b;
+        }
 
-/* Login */
-#loginArea {
-    position: absolute;
-    top: 40%;
-    width: 100%;
-    opacity: 0;
-    animation: fadeInLogin 2s forwards;
-}
+        #mainContent {
+            display: none; 
+            text-align: center;
+            width: 80%;
+        }
 
-@keyframes fadeInLogin {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
+        .main-logo {
+            font-size: 12em;
+            font-family: 'Impact', sans-serif;
+            color: #808080;
+            text-shadow: 0px 0px 15px rgba(255, 0, 0, 1), 0px 0px 30px rgba(255, 0, 0, 0.8); 
+            transition: color 1s ease-in-out;
+        }
 
-.password-input {
-    padding: 12px;
-    font-size: 1.5em;
-    color: #333;
-    border: 2px solid #e74c3c;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    width: 300px;
-    text-align: center;
-}
+        select {
+            padding: 12px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #333;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
 
-.login-button {
-    padding: 12px 25px;
-    font-size: 1.5em;
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
-    font-weight: bold;
-}
+        .confirm-button {
+            padding: 12px 25px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
 
-.login-button:hover {
-    background-color: #c0392b;
-}
+        .confirm-button:hover {
+            background-color: #c0392b;
+        }
 
-/* Main Content */
-#mainContent {
-    display: none;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-}
+        .main-header {
+            font-weight: bold;
+            font-size: 2.5em;
+            color: red;
+            margin-bottom: 10px;
+            animation: move 3s infinite alternate;
+        }
 
-.main-header {
-    font-weight: bold;
-    font-size: 2.5em;
-    color: red;
-    margin-bottom: 10px;
-    animation: move 3s infinite alternate;
-}
+        @keyframes move {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
 
-@keyframes move {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-}
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-/* Menu Selezione */
-.menu {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 30px;
-    width: 100%;
-}
+        .logos img {
+            width: 50px;
+            height: 50px;
+        }
 
-select {
-    padding: 12px;
-    font-size: 1.5em;
-    color: #fff;
-    background-color: #333;
-    border: 2px solid #e74c3c;
-    border-radius: 5px;
-    margin-right: 20px;
-    width: 250px;
-}
+        .telegram-link {
+            font-size: 1.5em;
+            color: #e74c3c;
+            text-decoration: none;
+        }
 
-.confirm-button {
-    padding: 12px 25px;
-    font-size: 1.5em;
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    text-transform: uppercase;
-}
+        .send-button {
+            padding: 12px 25px;
+            font-size: 1.5em;
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
 
-.confirm-button:hover {
-    background-color: #c0392b;
-}
+        .send-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
 
-/* Link Telegram */
-.telegram-link {
-    font-size: 1.5em;
-    margin-top: 20px;
-    color: #fff;
-    background-color: #e74c3c;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 12px 25px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-}
+    <!-- Pagina di Login -->
+    <div id="loginArea">
+        <div class="logo-container">
+            <div class="logo" id="mdlLogo">MDL</div>
+        </div>
+        
+        <h2>Inserisci la password per accedere:</h2>
+        <input type="password" class="password-input" id="passwordInput" placeholder="Inserisci password">
+        <button class="login-button" onclick="authenticate()">Accedi</button>
+    </div>
 
-.telegram-link:hover {
-    background-color: #c0392b;
-}
+    <!-- Pagina principale -->
+    <div id="mainContent">
+        <div class="main-logo" id="mdlLogoMain">MDL</div>
+        
+        <div class="main-header">24/7 OPEN</div>
 
-/* Crypto Logos */
-.crypto-logo {
-    width: 50px;
-    height: 50px;
-    filter: grayscale(100%);
-    margin-right: 10px;
-}
+        <p>Ora puoi selezionare il prodotto e completare l'ordine.</p>
+
+        <select id="productMenu">
+            <option value="">Seleziona un prodotto...</option>
+            <option value="Prodotto 1">Prodotto 1</option>
+            <option value="Prodotto 2">Prodotto 2</option>
+            <option value="Prodotto 3">Prodotto 3</option>
+        </select>
+
+        <select id="serviceMenu">
+            <option value="">Seleziona un servizio...</option>
+            <option value="Servizio 1">Servizio 1</option>
+            <option value="Servizio 2">Servizio 2</option>
+            <option value="Servizio 3">Servizio 3</option>
+        </select>
+
+        <button class="confirm-button" onclick="alert('Grazie per aver confermato la bozza!')">Conferma bozza</button>
+
+        <!-- Nuovo tasto "Invia bozza qui" -->
+        <button class="send-button" onclick="window.location.href='https://t.me/MercatoDellaDxxxxLibero'">Invia bozza qui</button>
+
+        <div class="logos">
+            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin Logo">
+            <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum Logo">
+        </div>
+    </div>
+
+    <script>
+        function authenticate() {
+            var password = document.getElementById("passwordInput").value;
+            
+            if (password === "MDL") {
+                document.getElementById("mainContent").style.display = "block";
+                document.getElementById("loginArea").style.display = "none";
+                document.getElementById("mdlLogoMain").style.color = "#e74c3c"; 
+            } else {
+                alert("Password errata!");
+            }
+        }
+
+        document.getElementById("passwordInput").addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                authenticate();
+            }
+        });
+    </script>
+
+</body>
+</html>
