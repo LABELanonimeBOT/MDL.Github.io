@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accesso MDL</title>
     <style>
-        /* Impostazioni generali con sfondo nero */
+        /* Impostazioni generali con sfondo a trama grigia */
         body {
             font-family: 'Arial', sans-serif;
             color: #fff;
@@ -16,7 +16,9 @@
             margin: 0;
             text-align: center;
             flex-direction: column;
-            background-color: #000; /* Sfondo nero */
+            background-color: #1a1a1a; /* Grigio scuro */
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent); /* Trama minimal */
+            background-size: 20px 20px;
         }
 
         /* Logo */
@@ -31,12 +33,12 @@
             text-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.5); /* Effetto luce */
         }
 
-        /* OPEN con effetto luminoso ridotto */
+        /* OPEN con luminosità leggermente aumentata */
         .main-header {
             font-weight: bold;
             font-size: 3em; /* Aumentato per visibilità */
             color: #00FF00; /* Verde brillante */
-            text-shadow: 0px 0px 3px rgba(0, 255, 0, 0.3), 0px 0px 10px rgba(0, 255, 0, 0.2); /* Effetto luminoso ridotto */
+            text-shadow: 0px 0px 5px rgba(0, 255, 0, 0.6), 0px 0px 15px rgba(0, 255, 0, 0.5); /* Effetto luminoso leggermente aumentato */
         }
 
         /* Testo in maiuscolo rosso scuro */
